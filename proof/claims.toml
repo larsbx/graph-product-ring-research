@@ -1,0 +1,83 @@
+[meta]
+namespace = "GPR"
+status_values = ["imported", "conjectural", "working", "computed", "proved", "retracted"]
+
+[[claim]]
+id = "GPR-SABIDUSSI-UFD"
+title = "Cartesian unique factorization of connected finite graphs"
+status = "imported"
+statement = "Connected finite graphs admit unique factorization into Cartesian-prime factors."
+authority = "external/classical"
+notes = "Sabidussi / modern product-graph literature. Not a project novelty claim."
+
+[[claim]]
+id = "GPR-SPRIME"
+title = "Fiber-captured equals Cartesian S-prime"
+status = "imported"
+statement = "The manuscript's unrestricted fiber-captured property is the established Cartesian S-prime property under aligned embedding conventions."
+authority = "external/prior_art"
+notes = "N6 literature audit redirects characterization and unrestricted recognition complexity to prior art."
+
+[[claim]]
+id = "GPR-DERIVATION-MODULE"
+title = "Vertex-count derivations on the Cartesian graph ring"
+status = "working"
+statement = "Under the polynomial-ring identification, derivations at the vertex-count character correspond to arbitrary integer coordinates on Cartesian-prime generators."
+authority = "manuscript_pending_import"
+notes = "Abstract algebra is standard; project value is attributed synthesis and invariant-specific instantiation. Import exact proof and scope before promotion."
+
+[[claim]]
+id = "GPR-C4"
+title = "Ordinary 4-cycle product formula and order"
+status = "working"
+statement = "c4(G square H) = c4(G)|V(H)| + |V(G)|c4(H) + d(G)d(H), with top differential symbol d tensor d."
+authority = "manuscript_pending_import"
+notes = "Exact prior-art gate tracked externally in novelty-lab issue #32."
+
+[[claim]]
+id = "GPR-P3"
+title = "Three-vertex path product formula and order"
+status = "working"
+statement = "P3(G square H) = P3(G)|V(H)| + |V(G)|P3(H) + 4 d(G)d(H), with top symbol 4 d tensor d."
+authority = "manuscript_pending_import"
+notes = "Convention and counting normalization must be pinned."
+
+[[claim]]
+id = "GPR-C6"
+title = "Ordinary 6-cycle product formula"
+status = "working"
+statement = "The manuscript gives an explicit Cartesian-product formula for c6 with c4, P3, edge, and triangle correction terms and claims exact order 3 with top symbol 16 d tensor d tensor d."
+authority = "manuscript_pending_import"
+notes = "Exact coefficients and cycle convention must be imported and independently replayed before promotion."
+
+[[claim]]
+id = "GPR-BIP-WALK"
+title = "Bipartite even closed-walk symbol theorem"
+status = "working"
+statement = "On the bipartite-generated subring, w_{2k} has exact order k with top symbol (2k)! d^{tensor k}."
+authority = "manuscript_pending_import"
+notes = "Kronecker-sum convolution is classical; novelty/status of the order-symbol packaging is under N6 follow-up audit."
+
+[[claim]]
+id = "GPR-TF-WALK"
+title = "Triangle-free walk-order theorem package"
+status = "working"
+statement = "The current manuscript contains restricted triangle-free walk-order/symbol statements beyond the bipartite case."
+authority = "manuscript_pending_import"
+notes = "Do not restate from memory. Import the exact current theorem before any promotion."
+
+[[claim]]
+id = "GPR-C2K"
+title = "General even-cycle order and symbol"
+status = "conjectural"
+statement = "For k >= 4, determine the differential order and top symbol of the ordinary 2k-cycle count under Cartesian product."
+authority = "project/open_problem"
+notes = "c8 is the next concrete target."
+
+[[claim]]
+id = "GPR-HOPF-BRIDGE"
+title = "Compatible Hopf/Tutte extension"
+status = "conjectural"
+statement = "Determine whether Cartesian multiplication admits a useful compatible graph coproduct/gluing/deletion-contraction structure, or prove a precise obstruction."
+authority = "project/open_problem"
+notes = "Prior-art/compatibility gate tracked in novelty-lab issue #33."
