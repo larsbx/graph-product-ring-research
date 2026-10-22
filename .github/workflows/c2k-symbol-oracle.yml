@@ -19,3 +19,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: Direct mixed-Cartesian-product DFS checks
         run: python3 oracles/c2k/verify_mixed_product_symbols.py
+      - name: Independent chord-connectivity versus cube-prefix matching check through k=8
+        run: |
+          g++ -std=c++20 -O3 -Wall -Wextra oracles/c2k/verify_chord_prefix_all8.cpp -o /tmp/gpr-verify-chord-prefix-all8
+          /tmp/gpr-verify-chord-prefix-all8
