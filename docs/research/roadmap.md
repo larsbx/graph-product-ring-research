@@ -90,3 +90,13 @@ a separate domination-specific proof.
 
 `novelty-lab` owns literature/novelty decisions; this repo owns mathematics
 and evidence.
+
+## c14 correction checkpoint (2026-10-22)
+
+- Two exact enumeration paths and negative controls are available in
+  [the cube correction record](c14-exact-cubes.md).
+- Correct finite Q7 count: 3,337,213,440; seven-factor support defect: +880,865,280.
+- The old negative-coefficient/sign-reversal numerical conclusion is contradicted.
+- #8 and #9 retain their general proof obligations. Do not infer a universal
+  pure-symbol identity from the cube diagonal.
+- Apply manuscript edits only after #2 / PR #11 source and lineage recovery.
