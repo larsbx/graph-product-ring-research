@@ -70,6 +70,9 @@ The [exact c14 cube record](docs/research/c14-exact-cubes.md) supplies two
 independent enumeration paths and regression tests. It gives
 `c14(Q7)=3,337,213,440` and seven-factor support defect `+880,865,280`,
 rejecting the old Q7 table and negative-symbol narrative. This is finite
-evidence pending review; universal symbol classification and the manuscript
-source-provenance gate remain separate. Replay with
+evidence pending review; the manuscript source-provenance gate remains in force. The subsequent
+[structural proof](proof/even-cycle-order-symbol.md) derives the general
+ordinary even-cycle order and pure-symbol formula, including
+`sigma_4(c8)=648 d^tensor4` and `sigma_7(c14)=880865280 d^tensor7`.
+These proof records are registered as working pending acceptance review. Replay with
 `python3 -m unittest discover -s tests -v` (Python >=3.10 and g++ required).

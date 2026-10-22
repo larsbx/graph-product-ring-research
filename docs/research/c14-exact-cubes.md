@@ -2,7 +2,9 @@
 
 Status: reproducible finite computational evidence, pending repository review.
 This corrects the numerical conclusions identified in PR #12, for issues #8/#9.
-It does not promote a general differential-order or pure-symbol theorem.
+This finite record is supplemented by the structural derivation in
+`proof/even-cycle-order-symbol.md`; it does not itself infer a universal theorem
+from the cube diagonal.
 
 ## Convention and result
 
@@ -104,6 +106,12 @@ Q2 squares, Q3 squares, ordinary hexagons (chords allowed), and Hamiltonian
 it as an input to the enumerators. CI runs the same suite.
 
 ## Mathematical and provenance boundary
+
+Update: `proof/even-cycle-order-symbol.md` now supplies the separate order and
+pure-symbol derivation on the full simple-graph ring. Under its explicit
+conventions the coefficient is therefore +880,865,280. The original conditional
+interpretation below describes the limits of this numerical evidence alone.
+
 
 The verified value is `D_7(c14)(K2,...,K2)=880865280`. If the appropriate
 order-seven and pure-symbol statement `sigma_7(c14)=gamma d^tensor7` is
