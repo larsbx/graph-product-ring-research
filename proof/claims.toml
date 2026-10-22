@@ -105,3 +105,63 @@ status = "conjectural"
 statement = "Determine whether Cartesian multiplication admits a useful compatible graph coproduct/gluing/deletion-contraction structure, or prove a precise obstruction."
 authority = "project/open_problem"
 notes = "Prior-art/compatibility gate tracked in novelty-lab issue #33."
+
+
+# 2026-10-22 research memo handoff. The following are unaccepted candidate
+# statements or open problems. No theorem, novelty, or estate stage promotion.
+
+[[claim]]
+id = "GPR-NB-SUPPORT-WORD"
+title = "Cyclic nonbacktracking full-support word formula"
+status = "working"
+statement = "Candidate: for k>=2 on the full Cartesian graph ring, b_(2k)=tr(B^(2k)) has centered epsilon-order k and symbol beta_k d^tensor k, beta_k=2^k times the number of labeled cyclic-adjacency-distinct pair words of length 2k."
+authority = "docs/research/nb-primitive-symbol-bridge-2026-10-22.md"
+notes = "Proof outline by support inclusion-exclusion and unique edge tuple; requires independent review, cyclic-seam tests, mixed irregular factor oracles, and normalization checks against nb draft."
+
+[[claim]]
+id = "GPR-NB-PRIMITIVE"
+title = "Primitive nonbacktracking symbols by Möbius inversion"
+status = "working"
+statement = "Conditional on GPR-NB-SUPPORT-WORD and exact conventions p_m=(1/m)sum_(r|m) mu(r)b_(m/r), primitive p_(2k) has centered order k and symbol (beta_k/(2k)) d^tensor k."
+authority = "docs/research/nb-primitive-symbol-bridge-2026-10-22.md"
+notes = "p_m counts oriented primitive cyclic equivalence classes; not unrooted unoriented simple cycles. Separate deficit Delta_k=p_(2k)-2c_(2k)."
+
+[[claim]]
+id = "GPR-NB-POSITIVITY-BRIDGE"
+title = "Identify the nb draft's alternating-sum coefficient with a positive word count"
+status = "conjectural"
+statement = "Determine whether a_k in the nb draft is an exactly specified positive multiple of beta_k or a related word-count coefficient; prove positivity only after that identification is audited."
+authority = "docs/research/nb-primitive-symbol-bridge-2026-10-22.md"
+notes = "Distinguish a_k^nb from a_k^chord in GPR-C2K. The explicit cyclic word proves beta_k>0, but need not settle an unexamined alternating-sum normalization."
+
+[[claim]]
+id = "GPR-NB-JUNCTION"
+title = "Weighted primitive-word junction recursion"
+status = "conjectural"
+statement = "Construct a partition-state or memory-bearing oriented-edge automaton that encodes repeated-vertex junctions of primitive cycles and derives exact multiplicities mu_lambda for Delta_k=p_(2k)-2c_(2k)."
+authority = "docs/research/nb-primitive-symbol-bridge-2026-10-22.md"
+notes = "Bartholdi bump variables and Lyndon/necklace decompositions are literature analogues, not a proved repeated-vertex recursion. First proof obligations Delta_4 and Delta_5."
+
+[[claim]]
+id = "GPR-ZKK-IDENTITY"
+title = "Identification of hypercube maximal-support cycle coefficient with z_(k,k)"
+status = "working"
+statement = "For ordinary non-induced simple 2k-cycles and matched counting conventions, z_(k,k) of Axenovich et al. (2023) equals gamma_k=c_(2k)^full(Q_k)=2^(k-2)(k-1)!a_k^chord."
+authority = "docs/research/hypercube-maximal-support-bridges-2026-10-22.md"
+notes = "Definition-alignment/substitution into established generalized Turan estimates; not a new extremal inequality. Primary paper DOI 10.1016/j.disc.2022.113238; confirm all counting normalizations before promotion."
+
+[[claim]]
+id = "GPR-MSCS"
+title = "Maximal-support hypercube cycle supersaturation"
+status = "conjectural"
+statement = "Candidate: for fixed k>=4, k!=5 and delta>0, some eta>0 and n0 force M_k(F)>=eta gamma_k binom(n,k)2^(n-k) for n>=n0 whenever F is a spanning delta-edge-dense subgraph of Q_n."
+authority = "docs/research/hypercube-maximal-support-bridges-2026-10-22.md"
+notes = "Unverified novelty and truth; test C8 first. Exclusion k=5 is necessary: C10-free subgraphs of Q_n have density >0.036 (Grebennikov–Marciano, arXiv:2402.19409 v4). Distinguish maximal support from existence of any C_(2k)."
+
+[[claim]]
+id = "GPR-HAM-PROFILE-REROUTE"
+title = "Profile-preserving parity-state reroute mechanism"
+status = "conjectural"
+statement = "Determine classes of local cyclic coordinate-word operations that preserve an admissible direction-use profile while eliminating repeated prefix parity states; quantify obstructions and any restricted consequence for Hamilton-cycle profile realization."
+authority = "docs/research/hypercube-maximal-support-bridges-2026-10-22.md"
+notes = "Research bridge only; paired-length-2k words do not solve length-2^n Hamiltonian profile conjecture (Joshua Erde, arXiv:2404.03950)."
