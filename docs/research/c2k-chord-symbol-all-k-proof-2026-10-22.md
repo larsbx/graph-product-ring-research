@@ -1,6 +1,6 @@
 # All-length ordinary even-cycle principal symbol — proof candidate (2026-10-22)
 
-**Status:** **working proof note**, not yet promoted to \`proved\`. Depends on the exact graph-ring differential convention and the source provenance gate in issue #2. Independently executed finite checks are on draft PR #15. The connected-chord-diagram sequence and recurrence are prior art; no originality claim is made for them.
+**Status:** **working proof note**, not yet promoted to `proved`. Depends on the exact graph-ring differential convention and the source provenance gate in issue #2. Independently executed finite checks are on draft PR #15. The connected-chord-diagram sequence and recurrence are prior art; no originality claim is made for them.
 
 ## Statement
 
@@ -101,6 +101,6 @@ is **established prior art**, not a project result: https://oeis.org/A000699 . T
 - [ ] Independently review the pairing-closed interval / connected-chord implication for **all k**, not just k=7 exhaustive predicate comparison.
 - [x] Confirm k=7 by two independent cycle enumerators and a 135,135-case chord/cube bijection check (PR #15).
 - [ ] Replay with a properly installed Mojo SDK; the draft Mojo source in PR #15 remains **unexecuted** until its workflow succeeds.
-- [ ] Fix the counting convention and \`Diff^n_epsilon\` symbol indexing by importing the authoritative manuscript in issue #2.
+- [ ] Fix the counting convention and `Diff^n_epsilon` symbol indexing by importing the authoritative manuscript in issue #2.
 - [ ] Consult novelty-lab issue #32 for exact literature precedence of the graph-ring symbol statement.
-- [ ] Only then request promotion of a new claim in \`proof/claims.toml\`.
+- [ ] Only then request promotion of a new claim in `proof/claims.toml`.
