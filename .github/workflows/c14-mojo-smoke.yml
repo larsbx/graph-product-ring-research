@@ -1,0 +1,33 @@
+name: Mojo C14 reference (non-authoritative)
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/c14/**'
+      - '.github/workflows/c14-mojo-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mojo-c14:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install uv package manager
+        run: python3 -m pip install --user uv
+      - name: Install Mojo 1.1.0 in isolated environment
+        run: |
+          python3 -m uv venv .venv
+          python3 -m uv pip install --python .venv/bin/python mojo==1.1.0
+          .venv/bin/mojo --version
+      - name: Run Mojo-first oracle
+        run: |
+          .venv/bin/mojo run experiments/c14/c14_canonical.mojo | tee /tmp/c14-mojo.out
+          grep -E '^P[[:space:]]+4[[:space:]]+392$' /tmp/c14-mojo.out
+          grep -E '^P[[:space:]]+5[[:space:]]+33530$' /tmp/c14-mojo.out
+          grep -E '^P[[:space:]]+6[[:space:]]+89782$' /tmp/c14-mojo.out
+          grep -E '^P[[:space:]]+7[[:space:]]+38232$' /tmp/c14-mojo.out
