@@ -17,16 +17,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-      - name: Install uv package manager
-        run: python3 -m pip install --user uv
-      - name: Install Mojo 1.1.0 in isolated environment
+      - name: Install pinned estate-compatible Mojo SDK
+        uses: prefix-dev/setup-pixi@v0.9.1
+        with:
+          manifest-path: experiments/c14/pixi.toml
+      - name: Check Mojo compiler version
+        run: pixi run --manifest-path experiments/c14/pixi.toml mojo --version
+      - name: Run Mojo-first pattern oracle
         run: |
-          python3 -m uv venv .venv
-          python3 -m uv pip install --python .venv/bin/python mojo==1.1.0
-          .venv/bin/mojo --version
-      - name: Run Mojo-first oracle
-        run: |
-          .venv/bin/mojo run experiments/c14/c14_canonical.mojo | tee /tmp/c14-mojo.out
+          pixi run --manifest-path experiments/c14/pixi.toml mojo run experiments/c14/c14_canonical.mojo | tee /tmp/c14-mojo.out
           grep -E '^P[[:space:]]+4[[:space:]]+392$' /tmp/c14-mojo.out
           grep -E '^P[[:space:]]+5[[:space:]]+33530$' /tmp/c14-mojo.out
           grep -E '^P[[:space:]]+6[[:space:]]+89782$' /tmp/c14-mojo.out
