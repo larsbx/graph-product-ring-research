@@ -1,0 +1,21 @@
+name: Ordinary cycle maximal-symbol mixed-factor oracle
+
+on:
+  pull_request:
+    paths:
+      - 'oracles/c2k/**'
+      - 'docs/research/c2k-chord-symbol-all-k-proof-2026-10-22.md'
+      - '.github/workflows/c2k-symbol-oracle.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  c2k-symbol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Direct mixed-Cartesian-product DFS checks
+        run: python3 oracles/c2k/verify_mixed_product_symbols.py
