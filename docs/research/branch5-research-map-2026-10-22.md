@@ -26,10 +26,10 @@ This note captures the six future-direction areas and the subsequent nb / hyperc
 
 ## Governance / handoff
 
-- Repository/domain authority: \`graph-product-ring-research\` for mathematical working claims; \`novelty-lab\` for prior-art decisions; other repositories remain consumers only.
+- Repository/domain authority: `graph-product-ring-research` for mathematical working claims; `novelty-lab` for prior-art decisions; other repositories remain consumers only.
 - Claims: entries in [proof/claims.toml](../../proof/claims.toml) are status-labeled and do not independently certify mathematical novelty.
-- Experimental counts must land in \`oracles/\`, \`experiments/\` or \`conformance/\` with explicit provenance/negative controls; no empty language silos or premature kernel authority.
-- Keep the current \`ESTATE.toml\` migration/bootstrap state and paper source-provenance gate intact; do not fake new registry membership or hand-edit the generated [estate registry](https://github.com/larsbx/estate-governance/blob/main/policy/estate-registry.toml).
+- Experimental counts must land in `oracles/`, `experiments/` or `conformance/` with explicit provenance/negative controls; no empty language silos or premature kernel authority.
+- Keep the current `ESTATE.toml` migration/bootstrap state and paper source-provenance gate intact; do not fake new registry membership or hand-edit the generated [estate registry](https://github.com/larsbx/estate-governance/blob/main/policy/estate-registry.toml).
 - This is a branch memo package; publication, source reconstruction, claim promotion and merge are separately gated.
 
 ## Specific next checks
