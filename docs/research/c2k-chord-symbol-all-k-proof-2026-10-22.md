@@ -4,7 +4,7 @@
 
 ## Statement
 
-Let \(c_{2k}(G)\) be the number of **ordinary, non-induced, unoriented, unrooted** simple \(2k\)-cycle subgraphs of a finite simple graph \(G\), for \(k\ge2\). Let \(\varepsilon(G)=|V(G)|\), \(d(G)=|E(G)|\), and use the augmented graph-product differential-order convention in which a \(k\)-argument symbol is obtained by \(k-1\) iterated Leibniz defects.
+Let \(c_{2k}(G)\) be the number of **ordinary, non-induced, unoriented, unrooted** simple \(2k\)-cycle subgraphs of a finite simple graph \(G\), for \(k\ge2\). Let \(\varepsilon(G)=|V(G)|\), \(d(G)=|E(G)|\), and use exactly the centered augmentation-ideal convention of [PR #14](../../proof/even-cycle-order-symbol.md): put \(u_G=G-\varepsilon(G)1\), \(I=\ker\varepsilon\), and \(D_qf(G_1,\ldots,G_q)=f(\prod_i u_{G_i})\). Order at most r means \(f(I^{r+1})=0\); the principal symbol is \(D_r f\), with no factorial division. Authoritative manuscript indexing remains a separate provenance gate.
 
 Write \(a_k\) for the number of **connected chord diagrams** with \(k\) chords, i.e. matchings of \(2k\) cyclically ordered marked points with connected chord-intersection graph (OEIS A000699).
 
@@ -22,28 +22,26 @@ Write \(a_k\) for the number of **connected chord diagrams** with \(k\) chords, 
 
 **Normalization:** if counting injective labeled maps \(C_{2k}\to G\) instead, multiply both \(c_{2k}\) and the symbol by \(|\mathrm{Aut}(C_{2k})|=4k\). Never mix this normalization with a value tabulated for unoriented cycle subgraphs.
 
-## Lemma 1: support-defect identity
+## Inputs already established in PR #14
 
-For a connected graph \(F\) with at least two vertices and \(q\ge1\), set \(N_F^{\rm full}(G_1,\ldots,G_q)\) to be the number of (ordinary, non-induced) copies of \(F\) in the Cartesian product whose projections to **all** \(q\) factors are nonconstant. Then
+Theorems 1 and 3 of [the merged proof](../../proof/even-cycle-order-symbol.md)
+establish that D_q N_F counts full-coordinate-support copies, a 2k-cycle
+uses at most k coordinates, and each maximal-support copy determines a
+unique selected edge in each factor. They give order k and
 
 \[
-(\widetilde\delta_{G_1}\cdots\widetilde\delta_{G_{q-1}}N_F)(G_q)
-=N_F^{\rm full}(G_1,\ldots,G_q).
+\sigma_k(c_{2k})=\frac{2^k k! b_k}{4k}d^{\otimes k},
 \]
 
-*Proof.* Partition copies by their **unique** set \(T\subseteq[q]\) of nonconstant coordinates. Constants in the other factors can be chosen in \(\prod_{i\notin T}\varepsilon(G_i)\) ways. Expanding the \(q\)-argument iterated augmented defect by inclusion–exclusion, the multiplier attached to support \(T\) is
-\(\prod_{i\notin T}\varepsilon(G_i)\sum_{T\subseteq S\subseteq[q]}(-1)^{q-|S|}\), which is 0 unless \(T=[q]\) and is 1 otherwise. No cancellation among distinct copies remains. This requires \(N_F(K_1)=0\), true for \(|V(F)|\ge2\). \(\square\)
+where b_k counts pair partitions of the fixed positions 1,...,2k with no
+nonempty proper **linear** pairing-closed interval. We reuse those results;
+no new support-defect calculation is needed. The new combinatorial statement
+below identifies b_k with the connected-chord count a_k.
 
-## Lemma 2: at most k active directions
+In particular do not substitute an uncentered iterated delta evaluation:
+PR #14 shows it has an additional epsilon times lower-defect term.
 
-In a closed \(2k\)-step cycle of any Cartesian product, each nonconstant projected coordinate must change on at least **two** cycle edges: its projection is a closed walk with at least one non-loop move, and a single non-loop move cannot close. Every cycle edge changes exactly one coordinate. Thus a \(2k\)-cycle uses at most \(k\) coordinates.
-
-If it uses **exactly \(k\)** coordinates, it changes every coordinate **exactly twice**. Its factor projection therefore walks along a single undirected edge and back. Hence each full-support copy lies in a **unique** subcube
-\(e_1\square\cdots\square e_k\cong Q_k\), where \(e_i\) is a chosen undirected edge of \(G_i\). This uniqueness is why the cycle count factors through \(\prod_i d(G_i)\).
-
-It follows from Lemma 1 that the \((k+1)\)-argument defect vanishes identically, so the differential order is at most \(k\).
-
-## Lemma 3: paired flip words and chord diagrams
+## Paired flip words and chord diagrams
 
 Inside \(Q_k\), an oriented, vertex-rooted \(2k\)-cycle that changes all \(k\) coordinates is given by:
 
@@ -54,27 +52,86 @@ After forgetting the names of the coordinates, each such flip sequence is a perf
 
 Let \(s_t\in(\mathbb F_2)^k\) be the vector of parity counts among the first \(t\) flips. The cycle is simple iff \(s_a\ne s_b\) for all \(0\le a<b<2k\). Equality means exactly that some nonempty proper (linear, equivalently cyclic) interval of flip positions contains **both or neither endpoints of every chord**.
 
-For a chord matching \(M\), such a proper pairing-closed interval exists **iff** the chord-intersection graph of \(M\) is disconnected:
+### Component-and-gap theorem (all k >= 2)
 
-- A pairing-closed cyclic interval splits the matching into chords internal and external to the interval; no chord in one group crosses a chord in the other.
-- Conversely, suppose the crossing graph is disconnected and choose one connected component \(C\) of chords. An induction that adds the chords of \(C\) along a spanning tree of crossings shows: any chord crossing **none** of \(C\) has both endpoints within one of the circular gaps between successive endpoints of \(C\). (For a single chord it is immediate; when a new chord crosses an existing component, any outside chord crossing none of the enlarged component must lie on one side of the newly inserted endpoint inside its old gap.) Because \(M\) has a chord outside \(C\), at least one such gap is nonempty. Its marked positions form a proper cyclic interval closed under pairing.
+Positions are distinct fixed marked points on an oriented circle, indexed
+modulo n=2k. A cyclic interval is a set of consecutive positions of length
+1,...,n-1. It is pairing-closed if each pair has either zero or two
+endpoints in it. Chords cross precisely when their endpoints alternate in
+cyclic order; touching is impossible for a perfect matching.
 
-Thus **simple full-\(k\)-direction cube cycles correspond exactly to connected chord diagrams** on \(k\) chords. The number of acceptable unnamed flip-word matchings is \(a_k\).
+**Theorem.** A matching has connected crossing graph if and only if it has
+no nonempty proper pairing-closed cyclic interval.
+
+**Proof, interval implies disconnection.** Let J be such an interval.
+Pairing closure partitions the chords into those with both endpoints in J
+and those with both endpoints in its complement. Both groups are nonempty:
+each nonempty closed set contains at least one whole pair. Endpoints of a
+chord from one group cannot alternate with endpoints of a chord from the
+other, because J and its complement are consecutive arcs. There are no
+crossing edges between these two nonempty groups.
+
+**Proof, disconnection implies interval.** Choose any connected component C
+of a disconnected crossing graph. C is nonempty and proper. Fix a chord e
+outside C. Its endpoints divide the circle minus those endpoints into two
+open arcs. Since e crosses no chord in C, each chord of C has both endpoints
+in one of these arcs. Chords contained in different arcs cannot cross each
+other. Connectedness of C therefore forces all its chords into the same
+arc (also valid when C consists of a single chord). Thus the other open arc
+contains no endpoint of C. Together with the two endpoints of e it is a
+connected subset of the circle minus the endpoints of C. Consequently both
+endpoints of e lie in the same open gap between consecutive endpoints of C.
+
+This conclusion holds for **every** chord outside C. Select any such chord
+and let J be the set of marked positions in its gap. J is nonempty, contains
+no endpoint of C, and is proper because C has endpoints. Every position in J
+belongs to a chord outside C, whose other endpoint lies in that same gap by
+the preceding conclusion. Hence J is pairing-closed, as required. QED.
+
+**Cyclic versus linear indexing.** The complement of a proper nonempty
+cyclic pairing-closed interval is again proper, nonempty, and pairing-closed.
+If the interval wraps across the cut between n and 1, its complement does
+not. Thus existence of a cyclic interval is equivalent to existence of a
+linear interval {i+1,...,j} with 0 <= i < j <= n and j-i < n, exactly the
+criterion in PR #14. No rotation quotient is being taken.
+
+**Prefix indexing.** For 0 <= i < j <= n, parity prefixes coincide precisely
+when positions i+1,...,j are pairing-closed. If j=n and i>0, the complementary
+prefix 1,...,i is closed, yielding a repetition among times 0,...,n-1.
+The case (i,j)=(0,n) is the allowed final return. Hence excluding proper
+closed intervals is exactly distinctness of the n pre-final vertices.
+This proves b_k=a_k for every k>=2.
+
+**Boundary cases.** For k=2, only the alternating matching is connected,
+and it gives the square. Single-chord components and gaps spanning the
+index cut are included in the proof. Closed intervals have even size at
+least two, and so do their complements. For k=1 the combinatorial equivalence
+still holds under the usual singleton-connected convention, but the flip
+walk traverses one edge twice and is not an ordinary simple cycle: the graph
+symbol formula is restricted to k>=2. The empty matching is excluded; a_0=1
+below is only a recurrence convention. Diagrams are counted on **fixed ordered
+positions**, not modulo rotation, reflection, or graph isomorphism.
 
 An explicit positive witness for every \(k\ge2\) is the word
 \(1,2,\ldots,k,1,2,\ldots,k\); the corresponding chord diagram has all chords crossing.
 
 ## Proof of the candidate theorem
 
-By Lemmas 1–2 the \(k\)-argument defect counts all simple \(2k\)-cycles of full support in \(G_1\square\cdots\square G_k\), each residing in its unique selected edge-cube. For one selected cube, by Lemma 3 there are
-\(2^k k!a_k\) **oriented vertex-rooted** cycles. Every undirected, unrooted simple \(2k\)-cycle has exactly \(2(2k)=4k\) such descriptions. Hence one cube contains
+The component-and-gap theorem identifies the pairing coefficient in PR #14
+with a_k. Substitution into its already established ordinary-cycle formula
+immediately gives
 
 \[
-\frac{2^k k! a_k}{4k}
-=2^{k-2}(k-1)!a_k
+\gamma_k=\frac{2^k k! a_k}{4k}=2^{k-2}(k-1)!a_k.
 \]
 
-full-support simple cycle subgraphs. Multiplying by the \(\prod_i d(G_i)\) independent choices of factor edges gives the asserted \(k\)-argument symbol formula. Lemma 2 supplies the upper order bound. Positivity of \(a_k\), witnessed explicitly above, supplies a \(k\)-argument nonzero evaluation on \(K_2,\ldots,K_2\), hence the exact order \(k\). \(\square\)
+For clarity, the factors are 2^k starting vertices, k! assignments of coordinate
+names to the pairs, and 4k rooted directed traversals per ordinary unrooted
+unoriented cycle. No additional dihedral quotient of a_k is allowed. This
+matches PR #14 exactly, including gamma_2=1, gamma_4=648 and
+gamma_7=880,865,280. Positivity and exact order k are already proved there.
+The combinatorial proof here is self-contained; the graph-ring corollary
+uses the explicitly cited merged theorem rather than duplicating it.
 
 ## Exact coefficients / consequences
 
@@ -82,9 +139,9 @@ full-support simple cycle subgraphs. Multiplying by the \(\prod_i d(G_i)\) indep
 |--:|--:|--:|---|
 | 2 | 1 | 1 | known / checked |
 | 3 | 4 | 16 | known / checked |
-| 4 | 27 | 648 | previous paper / checked |
-| 5 | 248 | 47,616 | previous paper / checked |
-| 6 | 2,830 | 5,433,600 | previous paper / checked |
+| 4 | 27 | 648 | merged PR #14 / checked |
+| 5 | 248 | 47,616 | merged PR #14 / checked |
+| 6 | 2,830 | 5,433,600 | merged PR #14 / checked |
 | 7 | 38,232 | **880,865,280** | two independent cycle oracles + chord matching / checked in PR #15 |
 | 8 | 593,859 | **191,555,159,040** | analytic prediction; chord/prefix bijection checked independently on all 2,027,025 eight-chord matchings; no Q8 cycle enumeration |
 | 9 | 10,401,712 | **53,682,819,563,520** | analytic prediction |
@@ -98,9 +155,31 @@ is **established prior art**, not a project result: https://oeis.org/A000699 . T
 
 ## Acceptance checklist
 
-- [ ] Independently review the pairing-closed interval / connected-chord implication for **all k**. Exhaustive predicate agreement now checked independently through k=8 (2,027,025 matchings; zero mismatches), but a finite test does not replace a proof.
+- [x] Independently scrutinize the all-k implication: the component-and-gap proof above supplies both directions and boundary cases. Separate acceptance review remains required. Exhaustive predicate agreement now checked independently through k=8 (2,027,025 matchings; zero mismatches), but a finite test does not replace a proof.
 - [x] Confirm k=7 by two independent cycle enumerators and a 135,135-case chord/cube bijection check (PR #15).
 - [ ] Replay with a properly installed Mojo SDK; the draft Mojo source in PR #15 remains **unexecuted** until its workflow succeeds.
-- [ ] Fix the counting convention and `Diff^n_epsilon` symbol indexing by importing the authoritative manuscript in issue #2.
+- [x] Reconcile coefficient and centered-symbol normalization with merged PR #14.
+- [ ] Reconcile authoritative manuscript notation and `Diff^n_epsilon` indexing after source recovery in issue #2.
 - [ ] Consult novelty-lab issue #32 for exact literature precedence of the graph-ring symbol statement.
 - [ ] Only then request promotion of a new claim in `proof/claims.toml`.
+
+
+## Independent replay and evidence boundary
+
+Local replay on 2026-10-22: the complete Python suite passes (13 tests);
+the C++ oracle reports zero mismatches through k=8, including all 2,027,025
+eight-chord matchings. The extended mixed-factor DFS also passes, with
+counts 1, 6, 96, 1,296 and 142,848 on the five documented products.
+
+`tests/test_chord_gap_correspondence.py` checks explicit nested/separated and
+crossing examples, every component and every gap of all matchings through
+k=5, rotations/reflections, wrap/complement and prefix boundaries, and exact
+coefficient arithmetic through k=10. The separate C++ oracle exhausts all
+matchings through k=8. These are finite regression evidence; the all-k result
+rests on the argument above. The recurrence's literature provenance is not
+re-proved here; k=9,10 values remain recurrence-derived predictions.
+
+No claim-registry entry, publication source, acceptance status, or novelty
+decision is promoted by this independent verification. Mojo execution remains
+outside this change. The manuscript/source-lineage and novelty-lab gates above
+remain open.
