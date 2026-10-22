@@ -1,0 +1,63 @@
+{
+  "scope": "ordinary non-induced simple 14-cycle C14 in Qn; unrooted, unoriented",
+  "date": "2026-10-22",
+  "policy": "independent computation; no theorem status promotion",
+  "mojo": {
+    "source": "experiments/c14/c14_canonical.mojo",
+    "executed": false,
+    "reason": "Mojo runtime unavailable locally; syntax/compilation not verified"
+  },
+  "executed": [
+    {
+      "name": "canonical restricted-growth coordinate-flip words",
+      "language": "C++20",
+      "compiler": "g++ 14.2.0"
+    },
+    {
+      "name": "even-block partitions of 14 flip positions",
+      "language": "C++20",
+      "compiler": "g++ 14.2.0"
+    },
+    {
+      "name": "perfect-matching chord-crossing connectivity",
+      "language": "Python 3.13"
+    },
+    {
+      "name": "classical connected chord-diagram recurrence",
+      "language": "Python 3.13"
+    },
+    {
+      "name": "per-matching equivalence of chord connectivity and cube-prefix simplicity",
+      "language": "Python 3.13"
+    }
+  ],
+  "patterns_length14": {
+    "k4": 392,
+    "k5": 33530,
+    "k6": 89782,
+    "k7": 38232
+  },
+  "even_partitions_length14": {
+    "k4": 1201200,
+    "k5": 1891890,
+    "k6": 945945,
+    "k7": 135135
+  },
+  "chord_matching_equivalence_tests": 135135,
+  "chord_matching_mismatches": 0,
+  "c14_Qn": {
+    "Q4": 5376,
+    "Q5": 4652160,
+    "Q6": 203258880,
+    "Q7": 3337213440
+  },
+  "historical_c14_Q7": 406517760,
+  "computed_seventh_defect": 880865280,
+  "historical_seventh_defect": -2049830400,
+  "derived_C14_full_support_formula": "2^7 * 7! * 38232 / 28 = 880865280",
+  "original_PaperIII_sign_change": "falsified under ordinary non-induced simple-cycle count convention",
+  "primitive_p14_symbol_assumption": "2036229120 not independently verified in this PR",
+  "conditional_corrected_deficit": "274498560 if primitive p14 symbol above is valid",
+  "all_executed_local_oracles_passed": true,
+  "upstream_novelty_note": "connected 7-chord diagrams = 38232 is classical OEIS A000699; any new graph-symbol theorem requires separate literature gate"
+}
