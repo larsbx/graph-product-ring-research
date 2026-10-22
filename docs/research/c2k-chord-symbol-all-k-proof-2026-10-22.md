@@ -1,6 +1,6 @@
 # All-length ordinary even-cycle principal symbol — proof candidate (2026-10-22)
 
-**Status:** **working proof note**, not yet promoted to `proved`. Depends on the exact graph-ring differential convention and the source provenance gate in issue #2. Independently executed finite checks are on draft PR #15. The connected-chord-diagram sequence and recurrence are prior art; no originality claim is made for them.
+**Status:** **working proof note**, not yet promoted to `proved`. Depends on the exact graph-ring differential convention and the source provenance gate in issue #2. Independently executed finite checks are on draft PR #15. The connected-chord-diagram sequence and recurrence are prior art; no originality claim is made for them. New independent local C++ proof-obligation oracle checks **every perfect matching of 16 positions** (2,027,025 diagrams) and finds zero differences between chord-intersection connectivity and cube-prefix simplicity through k=8 (see oracles/c2k/verify_chord_prefix_all8.cpp).
 
 ## Statement
 
@@ -86,7 +86,7 @@ full-support simple cycle subgraphs. Multiplying by the \(\prod_i d(G_i)\) indep
 | 5 | 248 | 47,616 | previous paper / checked |
 | 6 | 2,830 | 5,433,600 | previous paper / checked |
 | 7 | 38,232 | **880,865,280** | two independent cycle oracles + chord matching / checked in PR #15 |
-| 8 | 593,859 | **191,555,159,040** | analytic prediction from the candidate theorem |
+| 8 | 593,859 | **191,555,159,040** | analytic prediction; chord/prefix bijection checked independently on all 2,027,025 eight-chord matchings; no Q8 cycle enumeration |
 | 9 | 10,401,712 | **53,682,819,563,520** | analytic prediction |
 | 10 | 202,601,898 | **18,821,165,247,037,440** | analytic prediction |
 
@@ -98,7 +98,7 @@ is **established prior art**, not a project result: https://oeis.org/A000699 . T
 
 ## Acceptance checklist
 
-- [ ] Independently review the pairing-closed interval / connected-chord implication for **all k**, not just k=7 exhaustive predicate comparison.
+- [ ] Independently review the pairing-closed interval / connected-chord implication for **all k**. Exhaustive predicate agreement now checked independently through k=8 (2,027,025 matchings; zero mismatches), but a finite test does not replace a proof.
 - [x] Confirm k=7 by two independent cycle enumerators and a 135,135-case chord/cube bijection check (PR #15).
 - [ ] Replay with a properly installed Mojo SDK; the draft Mojo source in PR #15 remains **unexecuted** until its workflow succeeds.
 - [ ] Fix the counting convention and `Diff^n_epsilon` symbol indexing by importing the authoritative manuscript in issue #2.
