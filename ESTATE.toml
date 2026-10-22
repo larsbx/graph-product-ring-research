@@ -1,0 +1,39 @@
+schema = "estate-repository-v2"
+name = "graph-product-ring-research"
+default_branch = "main"
+
+[authority]
+acceptance_authority = false
+canonical_claim_registry = "proof/claims.toml"
+
+[[surface]]
+path = "proof"
+plane = "proof"
+
+[[surface]]
+path = "kernel"
+plane = "kernel"
+
+[[surface]]
+path = "oracles"
+plane = "oracle"
+
+[[surface]]
+path = "experiments"
+plane = "experiment"
+
+[[surface]]
+path = "paper"
+plane = "publication"
+
+[[surface]]
+path = "docs"
+plane = "documentation"
+
+[[surface]]
+path = "conformance"
+plane = "evidence"
+
+[migration]
+state = "bootstrap"
+next = "import-current-manuscript-and-verification-package"
