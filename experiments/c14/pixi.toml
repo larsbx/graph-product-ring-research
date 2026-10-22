@@ -1,0 +1,12 @@
+[workspace]
+name = "gpr-c14-mojo"
+channels = ["https://conda.modular.com/max-nightly/", "conda-forge"]
+platforms = ["linux-64"]
+
+[dependencies]
+# Match the tested estate finite-math-kernels Mojo nightly toolchain.
+mojo = "==1.1.0.dev2026090805"
+mojo-compiler = "==1.1.0.dev2026090805"
+
+[tasks]
+test = "mojo run c14_canonical.mojo"
