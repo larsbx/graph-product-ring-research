@@ -100,3 +100,16 @@ and evidence.
 - #8 and #9 retain their general proof obligations. Do not infer a universal
   pure-symbol identity from the cube diagonal.
 - Apply manuscript edits only after #2 / PR #11 source and lineage recovery.
+
+## Structural proof checkpoint (2026-10-22)
+
+[The proof record](../../proof/even-cycle-order-symbol.md) now derives:
+
+- centered support-defect identity and order = maximum coordinate support;
+- ordinary c_(2k) order k on the full simple-graph ring;
+- pure top symbol gamma_k d^tensor k via the exactly-two-changes classification;
+- gamma_4=648 and gamma_7=880,865,280, with an independent pair-partition oracle.
+
+This supersedes the preceding checkpoint's conditional symbol interpretation.
+The c8 lower-order product formula, literature/acceptance review, and source
+reconciliation remain open; registry status is working rather than proved.

@@ -68,11 +68,35 @@ notes = "Do not restate from memory. Import the exact current theorem before any
 
 [[claim]]
 id = "GPR-C2K"
-title = "General even-cycle order and symbol"
-status = "conjectural"
-statement = "For k >= 4, determine the differential order and top symbol of the ordinary 2k-cycle count under Cartesian product."
-authority = "project/open_problem"
-notes = "c8 is the next concrete target."
+title = "General ordinary even-cycle order and symbol"
+status = "working"
+statement = "For k >= 2 on the full finite simple undirected graph ring, ordinary non-induced c_(2k) has epsilon-order k and principal symbol gamma_k d^tensor k, where gamma_k is the full-support c_(2k)(Q_k) count and d is edge count."
+authority = "proof/even-cycle-order-symbol.md#3-even-cycle-theorem-on-the-full-graph-ring"
+notes = "Structural proof supplied; gamma_k = 2^k k! a_k/(4k), with a_k the pair-partition count defined in the proof. Pending external mathematical/literature review and manuscript synchronization; not marked proved."
+
+[[claim]]
+id = "GPR-SUPPORT-ORDER"
+title = "Connected-pattern support defect and augmented order"
+status = "working"
+statement = "For a connected pattern H with an edge, the q-factor centered augmentation defect counts ordinary copies nonconstant in all q coordinates, and ord_epsilon(N_H)=r*(H)."
+authority = "proof/even-cycle-order-symbol.md#2-support-defect-theorem"
+notes = "Explicit I-power definition, additive extension, and centering correction supplied. Uncentered delta evaluations are not generally support counts."
+
+[[claim]]
+id = "GPR-C8-SYMBOL"
+title = "Ordinary c8 order and top symbol"
+status = "working"
+statement = "Under the conventions of GPR-C2K, c8 has order 4 and sigma_4(c8)=648 d^tensor4."
+authority = "proof/even-cycle-order-symbol.md#4-exact-coefficients-and-the-corrected-c14-conclusion"
+notes = "a_4=27 independently enumerated via pair partitions and cube words; full lower-order product formula remains open."
+
+[[claim]]
+id = "GPR-C14-SYMBOL"
+title = "Corrected ordinary c14 order and top symbol"
+status = "working"
+statement = "Under the conventions of GPR-C2K, c14 has order 7 and sigma_7(c14)=880865280 d^tensor7; c14(Q7)=3337213440."
+authority = "proof/even-cycle-order-symbol.md#4-exact-coefficients-and-the-corrected-c14-conclusion"
+notes = "a_7=38232; pair partitions and two cube paths agree. Old Q7=406517760 and coefficient -2049830400 are contradicted. Exact manuscript source/lineage gate remains in force."
 
 [[claim]]
 id = "GPR-HOPF-BRIDGE"
