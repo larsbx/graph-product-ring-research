@@ -1,0 +1,12 @@
+name: Exact cube cycle regressions
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  exact-cycles:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Enumerate and cross-check
+        run: python3 -m unittest discover -s tests -v

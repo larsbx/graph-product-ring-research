@@ -63,3 +63,13 @@ A clean build or passing numerical experiment does not establish novelty or a
 general theorem. Search misses do not establish absence of prior art. Any
 theorem-facing result must identify its imported hypotheses, exact statement,
 proof/evidence path, and current claim status.
+
+## Reproducible finite correction
+
+The [exact c14 cube record](docs/research/c14-exact-cubes.md) supplies two
+independent enumeration paths and regression tests. It gives
+`c14(Q7)=3,337,213,440` and seven-factor support defect `+880,865,280`,
+rejecting the old Q7 table and negative-symbol narrative. This is finite
+evidence pending review; universal symbol classification and the manuscript
+source-provenance gate remain separate. Replay with
+`python3 -m unittest discover -s tests -v` (Python >=3.10 and g++ required).

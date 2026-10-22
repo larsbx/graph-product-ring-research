@@ -1,0 +1,14 @@
+{
+  "schema": "gpr-cube-simple-cycles-v1",
+  "length": 14,
+  "convention": "unoriented unrooted ordinary simple cycles; chords allowed",
+  "dimensions": [0, 1, 2, 3, 4, 5, 6, 7],
+  "canonical_patterns": [0, 0, 0, 0, 392, 33530, 89782, 38232],
+  "support_cycles": [0, 0, 0, 0, 5376, 4598400, 147755520, 880865280],
+  "cube_totals": [0, 0, 0, 0, 5376, 4652160, 203258880, 3337213440],
+  "seventh_support_defect": 880865280,
+  "rejected_q7": 406517760,
+  "rejected_seventh_defect": -2049830400,
+  "replay": "python -m unittest discover -s tests -v",
+  "authority": "finite computational evidence; no general symbol theorem or manuscript acceptance"
+}
