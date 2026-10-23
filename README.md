@@ -45,6 +45,12 @@ and **open conjecture**.
 See [ARCHITECTURE.md](ARCHITECTURE.md) and
 [proof/claims.toml](proof/claims.toml).
 
+For the mathematical rationale behind the closed-walk → nonbacktracking →
+primitive → simple-cycle program, see
+[Motivations for a nonbacktracking and primitive-cycle symbol calculus](docs/research/nb-primitive-cycle-motivations.md).
+The note is explanatory and does not promote working claims or supersede the
+repository's separate literature and mathematical review gates.
+
 ## Immediate priorities
 
 1. Import the current manuscript and verification package with provenance.
