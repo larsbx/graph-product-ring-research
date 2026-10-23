@@ -105,3 +105,27 @@ status = "conjectural"
 statement = "Determine whether Cartesian multiplication admits a useful compatible graph coproduct/gluing/deletion-contraction structure, or prove a precise obstruction."
 authority = "project/open_problem"
 notes = "Prior-art/compatibility gate tracked in novelty-lab issue #33."
+
+[[claim]]
+id = "GPR-NB2K-SUPPORT"
+title = "All-order nonbacktracking trace symbol by coordinate support"
+status = "working"
+statement = "For k >= 2, on the full finite simple graph ring, the Hashimoto trace b_(2k) has centered epsilon-order k and symbol beta_k d^tensor k with beta_k = 2^k k! R_k > 0, R_k counting cyclically adjacent-distinct pair partitions."
+authority = "proof/nb-primitive-support-symbol.md#3-maximal-support--one-edge-per-factor"
+notes = "Provides missing global upper order bound and pure symbol via support, not trace-algebra gr^1 generation. Finite inclusion-exclusion identifies historic Chebyshev a_k with R_k. Independent mathematical/literature acceptance pending; issues #17/#22."
+
+[[claim]]
+id = "GPR-PRIMITIVE2K-SUPPORT"
+title = "All-order primitive nonbacktracking symbol via Möbius filtration"
+status = "working"
+statement = "For k >= 2, oriented primitive cyclically nonbacktracking count p_(2k) has epsilon-order k and symbol beta_k/(2k) d^tensor k on the full finite simple graph ring."
+authority = "proof/nb-primitive-support-symbol.md#5-primitive-symbols-and-the-deficit"
+notes = "Requires cyclic-class rather than unoriented-copy normalization. Proper-divisor trace order follows from coordinate support. External review pending."
+
+[[claim]]
+id = "GPR-NB-DEFICIT-AGGREGATE"
+title = "All-order aggregate primitive versus simple-cycle top deficit"
+status = "working"
+statement = "For Delta_k=p_(2k)-2c_(2k), sigma_k(Delta_k) = eta_k d^tensor k, eta_k=2^k k! (R_k - a_k_simple)/(2k) >= 0, where a_k_simple is the connected-pairing count."
+authority = "proof/nb-primitive-support-symbol.md#5-primitive-symbols-and-the-deficit"
+notes = "Determines only aggregate top deficit, not lower-order terms or conjectural mu_lambda junction partition decomposition. Relies on existing working GPR-C2K proof record. Do not infer Delta_k identically zero for k<=3 on full ring."
