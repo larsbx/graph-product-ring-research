@@ -174,10 +174,9 @@ def count_simple_pairings(k):
         for a, b in pairs:
             match[a] = b
             match[b] = a
-        if all(not all(i <= match[i] < j for i in range(i0, j))
+        if all(not all(i0 <= match[pos] < j for pos in range(i0, j))
                for i0 in range(n)
                for j in range(i0 + 2, n + 1)
-               for i in [i0]
                if j - i0 < n):
             answer += 1
     return answer
