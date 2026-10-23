@@ -126,6 +126,6 @@ notes = "Requires cyclic-class rather than unoriented-copy normalization. Proper
 id = "GPR-NB-DEFICIT-AGGREGATE"
 title = "All-order aggregate primitive versus simple-cycle top deficit"
 status = "working"
-statement = "For Delta_k=p_(2k)-2c_(2k), sigma_k(Delta_k) = eta_k d^tensor k, eta_k=2^k k! (R_k - a_k_simple)/(2k) >= 0, where a_k_simple is the connected-pairing count."
+statement = "For Delta_k=p_(2k)-2c_(2k), D_k(Delta_k) = eta_k d^tensor k, eta_k=2^k k! (R_k - a_k_simple)/(2k) >= 0, where a_k_simple is the connected-pairing count."
 authority = "proof/nb-primitive-support-symbol.md#5-primitive-symbols-and-the-deficit"
 notes = "Determines only aggregate top deficit, not lower-order terms or conjectural mu_lambda junction partition decomposition. Relies on existing working GPR-C2K proof record. Do not infer Delta_k identically zero for k<=3 on full ring."

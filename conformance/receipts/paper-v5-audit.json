@@ -1,0 +1,120 @@
+{
+  "coefficients": [
+    {
+      "k": 2,
+      "R": 1,
+      "A": 1,
+      "beta": 8,
+      "primitive": 2,
+      "gamma": 1,
+      "eta": 0
+    },
+    {
+      "k": 3,
+      "R": 4,
+      "A": 4,
+      "beta": 192,
+      "primitive": 32,
+      "gamma": 16,
+      "eta": 0
+    },
+    {
+      "k": 4,
+      "R": 31,
+      "A": 27,
+      "beta": 11904,
+      "primitive": 1488,
+      "gamma": 648,
+      "eta": 192
+    },
+    {
+      "k": 5,
+      "R": 293,
+      "A": 248,
+      "beta": 1125120,
+      "primitive": 112512,
+      "gamma": 47616,
+      "eta": 17280
+    },
+    {
+      "k": 6,
+      "R": 3326,
+      "A": 2830,
+      "beta": 153262080,
+      "primitive": 12771840,
+      "gamma": 5433600,
+      "eta": 1904640
+    },
+    {
+      "k": 7,
+      "R": 44189,
+      "A": 38232,
+      "beta": 28507207680,
+      "primitive": 2036229120,
+      "gamma": 880865280,
+      "eta": 274498560
+    }
+  ],
+  "mixed": [
+    {
+      "factors": "P3,K3",
+      "centered_b_p_c": [
+        48,
+        12,
+        6
+      ]
+    },
+    {
+      "factors": "P3,K2,C4",
+      "centered_b_p_c": [
+        1536,
+        256,
+        128
+      ]
+    },
+    {
+      "factors": "P3,K2,K2,K3",
+      "centered_b_p_c": [
+        71424,
+        8928,
+        3888
+      ]
+    },
+    {
+      "factors": "K2+K1,K3",
+      "centered_b_p_c": [
+        24,
+        6,
+        3
+      ]
+    },
+    {
+      "factors": "empty,K3",
+      "centered_b_p_c": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "square4": [
+    8,
+    2,
+    1
+  ],
+  "square8": [
+    8,
+    0,
+    0
+  ],
+  "bowtie6": [
+    36,
+    4,
+    0
+  ],
+  "upper_order_length4_three_factors": [
+    0,
+    0,
+    0
+  ]
+}
