@@ -179,7 +179,13 @@ an additional assumption about the global symbol.
 \section{Primitive cyclic classes}
 Let $p_m(G)$ count oriented primitive cyclic equivalence classes of
 cyclically nonbacktracking length-$m$ walks, modulo cyclic rotation but
-\emph{not} orientation reversal. Powers of primitive classes give the
+\emph{not} orientation reversal. A trace term is an indexed arc sequence, equivalently a vertex traversal
+with specified initial time and direction; there is no extra rooting
+factor in~\eqref{eq:nb}. A primitive class of length $r$ has exactly $r$
+distinct rooted sequences, even when raised to a power. Periodicity must
+be tested on the actual arc or vertex sequence, not merely its coordinate
+word (the square word $1212$ is a primitive traversal).
+Powers of primitive classes give the
 standard identity
 \begin{equation}\label{eq:mob}
 b_m=\sum_{r\mid m}r p_r,
@@ -241,11 +247,13 @@ Define the oriented non-simple primitive deficit
 \begin{corollary}[Aggregate top correction]\label{cor:deficit}
 For every $k\ge2$,
 \begin{equation}\label{eq:deficit}
-\sigma_k(\Delta_k)=\eta_k d^{\otimes k},\qquad
+D_k\Delta_k=\eta_k d^{\otimes k},\qquad
 \eta_k=\frac{2^k k!}{2k}(R_k-A_k)\ge0.
 \end{equation}
 \end{corollary}
 \begin{proof}
+Here $D_k\Delta_k$ denotes the degree-$k$ centered defect, which may
+vanish; we do not assert that $\Delta_k$ has exact order $k$.
 Subtract twice the simple-cycle top symbol in
 Theorem~\ref{thm:cycles} from the primitive symbol in
 Corollary~\ref{cor:primitive}. Every admissible simple-cycle

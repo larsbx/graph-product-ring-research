@@ -237,7 +237,7 @@ Define \(\Delta_k=p_{2k}-2c_{2k}\). Subtracting symbols gives the
 **complete aggregate top-deficit coefficient**, for every \(k\ge2\):
 \[
  \boxed{\ 
- \sigma_k(\Delta_k)=\eta_k d^{\otimes k},\quad
+ D_k\Delta_k=\eta_k d^{\otimes k},\quad
  \eta_k=\frac{\beta_k}{2k}-2\gamma_k
        =\frac{2^k k!}{2k}
           (R_k-a_k^{\mathrm{simple}})\ge0.
@@ -280,3 +280,11 @@ statements.
 - The exact all-\(k\) result is submitted as a **working proof**
   for independent review; this PR does not mark the claim registry
   \`proved\` or publish the manuscript.
+
+## 7. Independent v5 audit clarification
+
+See `docs/audits/paper-iii-v5-independent-2026-10-23.md` and its fresh
+vertex-DFS/rotation-orbit replay. The aggregate formula uses `D_k Delta_k`,
+not an exact-order principal symbol when the degree-k defect is zero.
+In particular eta_2=eta_3=0 does not assert exact order k or function
+vanishing. Working status and the independent acceptance gates remain.

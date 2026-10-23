@@ -12,3 +12,5 @@ jobs:
         run: python3 -m unittest discover -s tests -v
       - name: Independent NB support replay
         run: python3 oracles/nb_symbol_replay_independent.py
+      - name: Independent v5 vertex and rotation audit
+        run: python3 oracles/paper_v5_audit.py
