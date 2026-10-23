@@ -10,3 +10,5 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: Enumerate and cross-check
         run: python3 -m unittest discover -s tests -v
+      - name: Independent NB support replay
+        run: python3 oracles/nb_symbol_replay_independent.py

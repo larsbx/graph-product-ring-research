@@ -1,0 +1,344 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[margin=1.13in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\sq}{\mathbin{\square}}
+\newcommand{\NB}{\operatorname{nb}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+\title[Nonbacktracking and primitive cycle symbols]{Nonbacktracking and primitive cycle symbols\\ on the Cartesian graph ring}
+\date{Draft for mathematical review --- October 23, 2026}
+\begin{document}
+\begin{abstract}
+For finite simple graphs under disjoint union and Cartesian product, we
+study nonbacktracking Hashimoto traces, oriented primitive cyclic classes,
+and ordinary non-induced simple cycles using centered augmentation-ideal
+symbols. A coordinate-support argument proves, at every $k\ge2$, that the
+nonbacktracking trace of length $2k$ has differential order exactly $k$
+and pure top symbol $\beta_k d^{\otimes k}$, with
+$\beta_k=2^k k!R_k>0$ and $R_k$ a finite count of pairings of cyclic
+positions avoiding adjacent pairs. M\"obius inversion yields the primitive
+symbol $\beta_k/(2k)d^{\otimes k}$. An independent coordinate-support
+classification gives the simple-cycle top symbol
+$\gamma_k d^{\otimes k}$, where $\gamma_k$ counts simple full-support
+cycles in a $k$-cube and is strictly positive. Thus the aggregate
+repeated-vertex deficit also has a pure top symbol. In particular, the
+correct value is $\gamma_7=880\,865\,280$, not the negative coefficient
+previously reported from an incomplete enumeration of $Q_7$.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{Setting and proof status}
+Let $\mathcal A$ be the Grothendieck ring of finite undirected, loopless,
+simple graphs, with disjoint union as addition, Cartesian product $\sq$
+as multiplication and $K_1$ as unit. Set $\eps(G)=|V(G)|$ and
+$d(G)=|E(G)|$, extended additively. Then $d$ is an $\eps$-derivation:
+\begin{equation}\label{eq:der}
+d(G\sq H)=d(G)\eps(H)+\eps(G)d(H).
+\end{equation}
+Write $I=\ker\eps$, $u_G=G-\eps(G)K_1$, and, for any additive invariant $f$,
+\begin{equation}\label{eq:center}
+D_q f(G_1,\ldots,G_q)=f(u_{G_1}\cdots u_{G_q}).
+\end{equation}
+Our order convention is $\ord_\eps f\le r$ exactly when
+$f(I^{r+1})=0$. At exact order $r$, the principal symbol is
+$\sigma_r(f)=D_r f$ without a factorial division. This \emph{centered}
+convention differs from the uncentered iterated Leibniz defect used in
+some historical drafts when $f(K_1)\ne0$.
+
+The generic Cartesian semiring, character and differential filtration are
+standard constructions; adjacency Kronecker sums and Bass--Ihara theory
+are imported ingredients, not claims of novelty. The proof statements below
+are a research manuscript under mathematical and prior-art review, with
+repository evidence at \cite{GPR}. The historical Paper III v4 is kept as
+an archival source rather than silently corrected in place.
+
+\section{Hashimoto traces and centered coordinate support}
+For a graph $G$ let $\vec E(G)$ be its directed arcs. The Hashimoto
+matrix $B_G$ has entry $B_{(u,v),(v,w)}=1$ if $w\ne u$ and zero otherwise.
+Define
+\begin{equation}\label{eq:nb}
+b_m(G):=\tr(B_G^m),\qquad m\ge1.
+\end{equation}
+This is the count of \emph{rooted oriented cyclically nonbacktracking}
+closed walks of length $m$: immediate reversal is excluded, including at
+the wraparound between the last and first edge. It is additive under
+disjoint union and $b_m(K_1)=0$.
+
+\begin{lemma}[Centered support defect]\label{lem:support}
+For actual graphs $G_1,\ldots,G_q$, $D_q b_m(G_1,\ldots,G_q)$ is exactly the
+number of rooted oriented cyclically nonbacktracking closed length-$m$
+walks in $G_1\sq\cdots\sq G_q$ whose projections change every coordinate.
+\end{lemma}
+\begin{proof}
+Every product edge changes exactly one coordinate. A walk has a unique set
+$S\subseteq[q]$ of coordinates used. A term indexed by
+$T\subseteq[q]$ in the expansion of~\eqref{eq:center} counts walks whose
+used-coordinate set is contained in $T$, with arbitrary fixed coordinates
+outside $T$. The cyclic nonbacktracking condition is invariant under this
+fiber inclusion. The coefficient of a particular walk with used set $S$ is
+$\sum_{T\supseteq S}(-1)^{q-|T|}$, equal to $1$ when $S=[q]$ and $0$
+otherwise. The empty-index term vanishes because $b_m(K_1)=0$.
+No vertex-injectivity assumption was used.
+\end{proof}
+
+\begin{lemma}[Uniform filtration bound]\label{lem:bound}
+For every $m\ge1$, $b_m(I^{\lfloor m/2\rfloor+1})=0$.
+\end{lemma}
+\begin{proof}
+The projection of a closed walk onto any coordinate it uses is a
+nonconstant closed walk in a loopless graph and traverses at least two
+edges (possibly one edge twice). The disjoint coordinate-support sets of
+steps therefore satisfy $m\ge 2|S|$. By Lemma~\ref{lem:support} all
+$D_qb_m$ with $q>\lfloor m/2\rfloor$ vanish on actual factor graphs.
+The $u_G$ additively generate $I$; multilinearity extends the identity
+to all of $I^{\lfloor m/2\rfloor+1}$.
+\end{proof}
+
+\section{A pure all-order nonbacktracking symbol}
+Let $W_k$ be the set of words of length $2k$ over
+$\{1,\ldots,k\}$ in which each letter occurs twice and consecutive
+letters, \emph{including the cyclic last--first pair}, differ. Put
+\begin{equation}\label{eq:beta}
+R_k=\frac{|W_k|}{k!},\qquad \beta_k=2^k|W_k|=2^k k!R_k.
+\end{equation}
+The integer $R_k$ counts pair partitions of $2k$ positions in which no
+pair joins cyclically adjacent positions.
+
+\begin{theorem}[Global nonbacktracking symbol]\label{thm:nb}
+On the \emph{full} graph ring $\mathcal A$, for every $k\ge2$,
+\begin{equation}\label{eq:nb-symbol}
+\ord_\eps(b_{2k})=k,\qquad
+\sigma_k(b_{2k})=\beta_k d^{\otimes k},\qquad \beta_k>0.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The order bound follows from Lemma~\ref{lem:bound}. In a closed walk
+of length $2k$ changing all $k$ product coordinates, each coordinate is
+changed exactly twice. Its two-step projection crosses one uniquely
+determined undirected edge and returns on the same edge. Consequently
+every full-support walk determines exactly one edge in each factor and
+is confined to their Cartesian product, a copy of $Q_k$.
+
+Conversely, choose an edge from every $G_i$, choose the starting endpoint
+of each selected edge ($2^k$ choices), and choose a word in $W_k$.
+Flipping the selected coordinates according to the word produces a closed
+walk, as each coordinate occurs twice. A pair of successive steps
+backtracks if and only if their coordinate labels agree; this holds also
+at the cyclic seam. Thus these choices parametrize exactly the
+full-support cyclically nonbacktracking rooted walks, even when vertices
+are revisited nonconsecutively. The selected edge tuple is recovered
+uniquely from the walk. Lemma~\ref{lem:support} gives
+\[
+D_kb_{2k}(G_1,\ldots,G_k)
+=2^k |W_k|\prod_i d(G_i)=\beta_k\prod_i d(G_i).
+\]
+For every $k\ge2$, the word
+$1,2,\ldots,k,1,2,\ldots,k$ lies in $W_k$, including the seam.
+Thus $\beta_k>0$ and evaluation on $k$ copies of $K_2$ proves
+$\ord_\eps(b_{2k})\ge k$.
+\end{proof}
+
+\begin{proposition}[Finite coefficient formula]\label{prop:finite}
+For $k\ge2$, with $(-1)!!=1$,
+\begin{equation}\label{eq:inclusion}
+R_k=\sum_{j=0}^k(-1)^j
+\frac{2k}{2k-j}\binom{2k-j}{j}(2k-2j-1)!!.
+\end{equation}
+This equals the historical Chebyshev--moment leading coefficient
+$a_k^{\rm nb}$, so its nonvanishing is a purely finite statement.
+\end{proposition}
+\begin{proof}
+The forbidden pairs are the $2k$ edges of the cycle $C_{2k}$
+formed by consecutive position labels. Inclusion--exclusion over a
+$j$-subset of forbidden pairs is nonzero only when those pairs are
+disjoint. The number of $j$-matchings of $C_{2k}$ is
+$\frac{2k}{2k-j}\binom{2k-j}{j}$. Once the $j$ pairs are fixed, the
+remaining $2k-2j$ vertices can be matched in
+$(2k-2j-1)!!$ ways. This proves~\eqref{eq:inclusion}.
+The coefficients of the regular-graph Chebyshev polynomial
+$\phi_{2k}(\lambda;q)$ are
+$(-1)^j\frac{2k}{2k-j}\binom{2k-j}{j}q^j\lambda^{2k-2j}$;
+substituting Gaussian even \emph{moments} $(2k-2j-1)!!$ gives
+exactly~\eqref{eq:inclusion}. This identifies the scalar formula, not
+an additional assumption about the global symbol.
+\end{proof}
+
+\section{Primitive cyclic classes}
+Let $p_m(G)$ count oriented primitive cyclic equivalence classes of
+cyclically nonbacktracking length-$m$ walks, modulo cyclic rotation but
+\emph{not} orientation reversal. Powers of primitive classes give the
+standard identity
+\begin{equation}\label{eq:mob}
+b_m=\sum_{r\mid m}r p_r,
+\qquad p_m=\frac1m\sum_{r\mid m}\mu(m/r)b_r.
+\end{equation}
+\begin{corollary}[Primitive symbol]\label{cor:primitive}
+On $\mathcal A$, for all $k\ge2$,
+\[
+\ord_\eps(p_{2k})=k,\qquad
+\sigma_k(p_{2k})=\frac{\beta_k}{2k}d^{\otimes k}.
+\]
+\end{corollary}
+\begin{proof}
+For every proper divisor $r<2k$, Lemma~\ref{lem:bound}
+gives $\ord_\eps(b_r)\le\lfloor r/2\rfloor<k$.
+Thus the $k$-th centered symbol of~\eqref{eq:mob} has only its
+$r=2k$ term. The same identity establishes the upper order bound;
+Theorem~\ref{thm:nb} proves nonvanishing.
+\end{proof}
+
+\section{Ordinary simple cycles and the aggregate deficit}
+Write $c_{2k}(G)=\mathrm{inj}(C_{2k},G)/(4k)$ for the number of
+ordinary, not necessarily induced, simple cycle copies. Here
+\emph{simple} means that all vertices of a traversal are distinct before
+the final return. Let $A_k$ be the number of pair partitions of
+$\{1,\ldots,2k\}$ having no nonempty proper contiguous interval
+that is a union of whole pairs.
+
+\begin{theorem}[Simple even-cycle symbol]\label{thm:cycles}
+On the full graph ring, for every $k\ge2$,
+\[
+\ord_\eps(c_{2k})=k,\qquad
+\sigma_k(c_{2k})=\gamma_k d^{\otimes k},\qquad
+\gamma_k=\frac{2^k k! A_k}{4k}>0.
+\]
+\end{theorem}
+\begin{proof}
+The centered defect $D_q c_{2k}$ counts ordinary cycle copies using
+all $q$ Cartesian factors, by the same used-coordinate inclusion--exclusion
+as Lemma~\ref{lem:support}. Every used coordinate must change at least
+twice, giving order at most $k$. Maximal-support cycles project to an
+edge out and back in each factor, so they are uniquely carried by a
+chosen edge tuple and a full-support simple cycle in $Q_k$.
+
+A full-support cube traversal yields a pairing of its two occurrences
+of each coordinate. Two visited cube vertices coincide if and only if
+the intervening flips consist of complete pairs. Hence vertex
+injectivity up to the final return is exactly the condition defining
+$A_k$. There are $k!$ coordinate relabelings and $2^k$ starts; each
+unoriented unrooted $2k$-cycle is counted $4k$ times. This gives the
+coefficient. The word $1,2,\ldots,k,1,2,\ldots,k$ is a simple
+full-support cycle, hence $\gamma_k>0$ and the order is exact.
+\end{proof}
+
+Define the oriented non-simple primitive deficit
+\[
+\Delta_k=p_{2k}-2c_{2k}.
+\]
+\begin{corollary}[Aggregate top correction]\label{cor:deficit}
+For every $k\ge2$,
+\begin{equation}\label{eq:deficit}
+\sigma_k(\Delta_k)=\eta_k d^{\otimes k},\qquad
+\eta_k=\frac{2^k k!}{2k}(R_k-A_k)\ge0.
+\end{equation}
+\end{corollary}
+\begin{proof}
+Subtract twice the simple-cycle top symbol in
+Theorem~\ref{thm:cycles} from the primitive symbol in
+Corollary~\ref{cor:primitive}. Every admissible simple-cycle
+word is cyclically nonbacktracking, so $A_k\le R_k$.
+\end{proof}
+\begin{remark}
+The full graph ring distinction matters: $\Delta_3$ need not vanish
+as a \emph{function} on all graphs (two triangles may share a vertex),
+even though its order-$3$ top coefficient is zero. On the bipartite
+sector $\Delta_k$ vanishes identically for $k\le3$.
+No assertion here classifies non-simple primitive cycles by a partition
+of their constituent simple-cycle lengths; the lower-order
+junction multiplicities remain unresolved.
+\end{remark}
+
+\section{Exact coefficient ledger and correction to the historical draft}
+\begin{center}
+\begin{tabular}{@{}r r r r r r@{}}\toprule
+$k$ & $R_k$ & $\beta_k$ & $A_k$ & $\gamma_k$ & $\eta_k$\\\midrule
+2&1&8&1&1&0\\
+3&4&192&4&16&0\\
+4&31&11\,904&27&648&192\\
+5&293&1\,125\,120&248&47\,616&17\,280\\
+6&3\,326&153\,262\,080&2\,830&5\,433\,600&1\,904\,640\\
+7&44\,189&28\,507\,207\,680&38\,232&880\,865\,280&274\,498\,560\\
+\bottomrule\end{tabular}
+\end{center}
+The values of $R_k$ can be recomputed from the exact finite
+inclusion--exclusion in~\eqref{eq:inclusion}. The $A_k$ counts and
+ordinary-cycle cube enumeration are independently checked in the
+repository, with separate coordinate-word and edge-subgraph oracles
+\cite{GPR}. The prior draft claimed
+\[
+ c_{14}(Q_7)=406\,517\,760,\qquad \gamma_7=-2\,049\,830\,400.
+\]
+Those values are false under ordinary simple-cycle conventions. The
+corrected finite enumeration is
+\begin{equation}\label{eq:correct7}
+\boxed{c_{14}(Q_7)=3\,337\,213\,440,\qquad
+\gamma_7=880\,865\,280>0.}
+\end{equation}
+Indeed, writing $B_j$ for full-$j$-coordinate $14$-cycles in $Q_j$,
+the unique minimal-face decomposition gives
+\[
+ c_{14}(Q_7)=\sum_{j=0}^7\binom7j2^{7-j} B_j,
+\quad B_7=\gamma_7=880\,865\,280.
+\]
+The previous value omitted full-support cycles and generated a
+spurious negative seventh finite difference. Theorem~\ref{thm:cycles}
+proves $\gamma_k>0$ for \emph{every} $k\ge2$, so the claimed
+sign reversal and possible sign oscillation are withdrawn.
+
+\section{Verification scope and remaining questions}
+The checked-in test suite compares independent directed-arc traces
+against centered defects on hypercubes and on products involving
+nonregular and nonbipartite graphs, and checks cyclic-seam conditions,
+M\"obius factors and the finite matching formula. A separate finite
+replay recomputed
+\[
+ (R_2,\ldots,R_7)=(1,4,31,293,3326,44189),
+\]
+and, for example, the centered two-factor nonbacktracking symbol on
+$(P_3,K_3)$ at length $4$ equals $48=8\cdot2\cdot3$; the
+three-factor symbol on $(P_3,K_2,C_4)$ at length $6$ is
+$1536=192\cdot2\cdot1\cdot4$.
+These tests corroborate counting conventions; the all-order conclusions
+rest on the explicit bijections and augmentation-filtration proofs.
+
+\begin{question}
+Can the aggregate correction in~\eqref{eq:deficit} be refined into a
+\emph{proved} partition-indexed junction decomposition, with separately
+identified $\mu_\lambda$ and a transfer object for repeated-vertex
+incidence? The coefficients at $k=6$ alone do not determine its three
+suggested partition types.
+\end{question}
+\begin{question}
+Which of the operator/symbol formulations survive a claim-by-claim
+prior-art comparison with the Ihara--Bass and Cartesian graph-bundle
+literature? No originality conclusion follows from this manuscript.
+\end{question}
+
+\begin{thebibliography}{9}
+\bibitem{FoataZeilberger}
+D. Foata and D. Zeilberger, \emph{A combinatorial proof of Bass's
+evaluations of the Ihara--Selberg zeta function for graphs},
+Trans. Amer. Math. Soc. \textbf{351} (1999), 2257--2274.
+\bibitem{RG}
+\emph{A ring-theoretic framework for graph invariants via Cartesian
+products}, parent manuscript (historical research draft, 2026).
+\bibitem{GPR}
+Graph-product-ring-research, \emph{Ordinary even cycles: support,
+augmented order, and principal symbol}; \emph{Nonbacktracking/primitive
+symbols by coordinate support}; and exact-cube verification oracles,
+2026. Repository research records, pending independent acceptance.
+\end{thebibliography}
+\end{document}
