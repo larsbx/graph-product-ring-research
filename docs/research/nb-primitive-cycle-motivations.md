@@ -176,6 +176,7 @@ This is why the project should not stop with ordinary walk convolution, nor trea
 
 ### Primary repository sources and review obligations
 
+- [Computer science implications and applied mathematics connections](cycle-calculus-cs-applied-connections.md) — application hypotheses, algorithmic research targets, and boundaries.
 - [Corrected Paper III v5 manuscript](../../paper/drafts/nb-cycles-v5-review.tex), merged PR #24.
 - [Nonbacktracking and primitive support-word proof](../../proof/nb-primitive-support-symbol.md), merged PR #23.
 - [Ordinary even-cycle coordinate-support proof](../../proof/even-cycle-order-symbol.md), merged PR #14.
