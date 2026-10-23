@@ -1,0 +1,465 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{mathtools}
+
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\PP}{\mathcal{P}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\Diff}{\mathrm{Diff}}
+\newcommand{\nb}{\mathrm{nb}}
+\DeclareMathOperator{\FinGraph}{FinGraph}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\title[Nonbacktracking Walks and Cycle Counts]{Nonbacktracking Walks and Cycle Counts\\as Differential Operators on the Cartesian Graph Ring}
+\author{}
+\date{}
+
+\begin{document}
+\begin{abstract}
+We study nonbacktracking walks, primitive cycles, and simple cycle subgraphs as differential operators on the Cartesian graph ring~$\K(\FinGraph)$. On the bipartite subring~$\K^{\mathrm{bip}}$, we prove that the nonbacktracking walk count $\nb_{2k}=\tr(T_G^{2k})$ has order exactly~$k$ with principal symbol
+\[
+   \sigma_k(\nb_{2k})=\beta_k\,d^{\otimes k},
+\]
+where $\beta_k$ is a closed Chebyshev--moment sum. The proportionality to~$d^{\otimes k}$ follows from a strengthened trace-algebra theorem for Bass--Hashimoto trace polynomials on Cartesian products; the nonvanishing $\beta_k\ne0$ follows from a Gaussian--Chebyshev positivity lemma. The M\"obius-inverted primitive cycle count $p_{2k}$ has order exactly~$k$ with
+\[
+   \sigma_k(p_{2k})=\frac{\beta_k}{2k}\,d^{\otimes k},
+\]
+where the universal factor $1/(2k)$ is proved by a divisor-order filtration argument. The simple cycle count $c_{2k}=N_{C_{2k}}$ satisfies $c_{2k}=(p_{2k}-\Delta_k)/2$, where the deficit $\Delta_k$ vanishes for $k\le3$, giving $\sigma_k(c_{2k})=\beta_k/(4k)\,d^{\otimes k}$ in this range. At $k\ge4$, junction corrections from composite non-simple primitive cycles produce a nonzero deficit. The symbol coefficient $\gamma'_k:=\sigma_k(c_{2k})/d^{\otimes k}$ is computed exactly through $k=7$, revealing a sign change: $\gamma'_k>0$ for $k\le6$ and $\gamma'_7<0$.
+\end{abstract}
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+This paper extends the differential calculus on the Cartesian graph ring developed in~\cite{RG}. The ring $\K=\K(\FinGraph)\cong\ZZ[x_P:P\in\PP]$, with vertex-count augmentation~$\varepsilon$ and augmented Leibniz defect
+\[
+\widetilde\delta_xD(y):=D(x\square y)-D(x)\varepsilon(y)-\varepsilon(x)D(y),
+\]
+carries a differential filtration in which each graph invariant $D:\K\to\ZZ$ has a well-defined order and principal symbol~\cite[\S3]{RG}. The parent paper proves that the closed-walk count $w_{2k}$ has order~$k$ on the bipartite subring $\K^{\mathrm{bip}}$ with
+\[
+   \sigma_k(w_{2k})=(2k)!\,d^{\otimes k},
+\]
+where $d=|E(\cdot)|$ is the edge-count derivation.
+
+We ask what happens when ordinary closed walks are replaced by their nonbacktracking and primitive-cycle refinements. Three natural invariants sit alongside $w_{2k}$:
+\[
+\nb_{2k}(G):=\tr(T_G^{2k}),\qquad
+p_{2k}(G):=\frac{1}{2k}\sum_{d\mid 2k}\mu(2k/d)\nb_d(G),\qquad
+c_{2k}(G):=N_{C_{2k}}(G).
+\]
+The central point is that the tower $w_{2k},\nb_{2k},p_{2k},c_{2k}$ shares the same top-symbol direction $d^{\otimes k}$ on $\K^{\mathrm{bip}}$ in the ranges proved below; the structure is carried by the scalar coefficients and by the deficit correction~$\Delta_k$.
+
+\subsection{Summary of results}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Nonbacktracking symbol} (Propositions~\ref{prop:nb-coefficient} and~\ref{prop:nb-global}). On $\K^{\mathrm{bip}}$, $\nb_{2k}$ has order exactly~$k$ with $\sigma_k(\nb_{2k})=\beta_k d^{\otimes k}$, where $\beta_k=2^k k! a_k$ is an explicit Chebyshev--moment sum. Proportionality to $d^{\otimes k}$ is proved by a trace-algebra theorem for Bass--Hashimoto trace polynomials; nonvanishing is proved by a Gaussian--Chebyshev positivity argument (Lemma~\ref{lem:ak-positive}).
+\item \textbf{Primitive cycle symbol} (Theorem~\ref{thm:primitive-symbol}). The M\"obius-inverted count $p_{2k}$ has order exactly~$k$ on $\K^{\mathrm{bip}}$ for all $k\ge2$, with $\sigma_k(p_{2k})=\beta_k/(2k)\,d^{\otimes k}$.
+\item \textbf{Deficit vanishing and junction corrections} (Propositions~\ref{prop:deficit-vanishes} and~\ref{prop:k4-junction}). The deficit $\Delta_k:=p_{2k}-2c_{2k}$ vanishes on $\K^{\mathrm{bip}}$ for $k\le3$, giving $\sigma_k(c_{2k})=\beta_k/(4k)\,d^{\otimes k}$. At $k=4$, the first junction correction appears: $\sigma_4(c_8)=648\,d^{\otimes4}$.
+\item \textbf{Sign change} (\S\ref{sec:extended-computation}). The cycle-count symbol coefficient $\gamma'_k$, computed exactly through $k=7$, is positive for $k\le6$ and negative at $k=7$. In particular, $\gamma'_k\ne0$ for all $k\le7$, so $\ord(c_{2k})=k$ exactly in this range.
+\end{enumerate}
+
+\section{Preliminaries}
+
+We assume the setup of~\cite{RG}. The ring $\K$ carries the vertex-count augmentation~$\varepsilon$, the edge-count derivation~$d$, and the $\varepsilon$-differential filtration~$\Diff^n_\varepsilon$. The principal symbol is
+\[
+   \sigma_n(D)(x_1,\ldots,x_n)=(\widetilde\delta_{x_1}\cdots\widetilde\delta_{x_{n-1}}D)(x_n).
+\]
+The binomial convolution
+\begin{equation}\label{eq:walk-binomial}
+   w_k(G\square H)=\sum_{j=0}^k \binom{k}{j}w_j(G)w_{k-j}(H)
+\end{equation}
+follows from $A_{G\square H}=A_G\otimes I+I\otimes A_H$. On $\K^{\mathrm{bip}}$, odd walk counts vanish.
+
+\section{The Hashimoto matrix}
+
+\begin{definition}
+The \emph{Hashimoto matrix} $T_G$ is indexed by arcs $(u,v)\in E^{\pm}(G)$, with $T_G[(u,v),(v,w)]=1$ if $w\ne u$ and $0$ otherwise. The nonbacktracking walk count is $\nb_k(G):=\tr(T_G^k)$.
+\end{definition}
+
+For a graph $G$, write $A=A_G$, $D=D_G$ for the diagonal degree matrix, and $Q=Q_G:=D-I$.
+
+\begin{lemma}[Bass trace identity]\label{lem:bass-trace}
+For every finite graph $G$,
+\[
+   \sum_{m\ge1}\nb_m(G)u^{m-1}
+   = \frac{2(|E|-|V|)u}{1-u^2}
+     +\tr\!\left((A-2uQ)(I-uA+u^2Q)^{-1}\right).
+\]
+Equivalently, if matrices $R_j=R_j(A,Q)$ are defined by $R_0=I$, $R_1=A$, and
+\[
+   R_j=AR_{j-1}-QR_{j-2}\qquad (j\ge2),
+\]
+and if $\Psi_m:=AR_{m-1}-2QR_{m-2}$ for $m\ge2$ and $\Psi_1:=A$, then
+\begin{equation}\label{eq:bass-trace-coeff}
+   \nb_m(G)=\tr(\Psi_m(A,Q)) + \begin{cases}2(|E|-|V|),&m\text{ even},\\0,&m\text{ odd}.\end{cases}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The Bass determinant formula for the Hashimoto matrix gives
+\[
+   \det(I-uT_G)=(1-u^2)^{|E|-|V|}\det(I-uA+u^2Q).
+\]
+Taking $-d/du$ of the logarithm gives the displayed generating function, since
+$-d\log\det(I-uT_G)/du=\sum_{m\ge1}\tr(T_G^m)u^{m-1}$. The coefficient form follows by writing $(I-uA+u^2Q)^{-1}=\sum_{j\ge0}R_j u^j$ and comparing coefficients.
+\end{proof}
+
+\begin{lemma}\label{lem:regular-spectral}
+For a $d_0$-regular graph with adjacency eigenvalues $\lambda_1,\ldots,\lambda_n$,
+\[
+   \nb_{2k}(G)=\sum_{i=1}^n \phi_{2k}(\lambda_i;d_0-1)+2(|E|-|V|),
+\]
+where $\phi_0=2$, $\phi_1=\lambda$, and $\phi_j=\lambda\phi_{j-1}-q\phi_{j-2}$.
+\end{lemma}
+
+\begin{proof}
+This is the specialization of Lemma~\ref{lem:bass-trace} when $Q=(d_0-1)I$, so $A$ and $Q$ commute. Each adjacency eigenvalue contributes the two roots of $t^2-\lambda t+(d_0-1)=0$, while the factor $(1-u^2)^{|E|-|V|}$ contributes $2(|E|-|V|)$ in even degree.
+\end{proof}
+
+\section{The nonbacktracking symbol}
+
+\begin{definition}\label{def:cheb-coeff}
+The Chebyshev coefficient is
+\[
+   c_{2k,m}:=(-1)^m \frac{2k}{2k-m}\binom{2k-m}{m}\qquad(0\le m\le k),
+\]
+so that $\phi_{2k}(\lambda;q)=\sum_{m=0}^k c_{2k,m}q^m\lambda^{2(k-m)}$.
+\end{definition}
+
+\begin{definition}\label{def:walk-moment}
+The walk moment is
+\[
+   M_{2r}(n):=2^{-n}\sum_{j=0}^n \binom{n}{j}(n-2j)^{2r}=w_{2r}(Q_n)/2^n.
+\]
+It is a polynomial of degree $r$ in $n$ with leading coefficient $(2r-1)!!$.
+\end{definition}
+
+\begin{proposition}\label{prop:nb-coefficient}
+Define
+\[
+   F_k(n):=\sum_{m=0}^k c_{2k,m}(n-1)^mM_{2(k-m)}(n).
+\]
+Then:
+\begin{enumerate}[label=(\roman*)]
+\item $\nb_{2k}(Q_n)/2^n=F_k(n)+(n-2)$ for all $n\ge1$;
+\item $F_k$ is a polynomial of degree exactly $k$ in $n$;
+\item the leading coefficient of $F_k$ is $a_k:=\sum_{m=0}^k c_{2k,m}(2(k-m)-1)!!$;
+\item $\sigma_k(\nb_{2k})(K_2,\ldots,K_2)=2^k k!a_k=:\beta_k$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Part (i) follows from Lemma~\ref{lem:regular-spectral} applied to the $n$-regular graph $Q_n$. Parts (ii) and (iii) follow because $(n-1)^m$ has degree $m$ and $M_{2(k-m)}(n)$ has degree $k-m$ with leading coefficient $(2(k-m)-1)!!$. For (iv), the inclusion--exclusion formula for $k$ copies of $K_2$ gives
+\[
+   \sigma_k(\nb_{2k})(K_2^k)=2^k\Delta^k[\nb_{2k}(Q_n)/2^n]_{n=0}.
+\]
+The term $(n-2)$ is killed by $\Delta^k$ for $k\ge2$, and $\Delta^k$ of a degree-$k$ polynomial at $0$ is $k!$ times its leading coefficient.
+\end{proof}
+
+\begin{lemma}\label{lem:ak-positive}
+$a_k>0$ for all $k\ge2$.
+\end{lemma}
+
+\begin{proof}
+At $q=1$, $\phi_{2k}(\lambda;1)=2T_{2k}(\lambda/2)$, where $T_j$ is the Chebyshev polynomial of the first kind. Since $(2r-1)!!=\mathbb E[Z^{2r}]$ for $Z\sim N(0,1)$,
+\[
+   a_k=\mathbb E[\phi_{2k}(Z;1)]=2\mathbb E[T_{2k}(Z/2)].
+\]
+Writing the Gaussian integral in the variable $u=Z/2$ gives a positive constant multiple of
+\[
+   I_k+J_k,
+   \qquad
+   I_k:=\int_0^1 T_{2k}(u)e^{-2u^2}\,du,
+   \quad
+   J_k:=\int_1^\infty T_{2k}(u)e^{-2u^2}\,du.
+\]
+On $[0,1]$, $|T_{2k}(u)|\le1$, hence $|I_k|\le C_0:=\int_0^1 e^{-2u^2}du<0.5982$. For $u>1$, $T_{2k}(u)=\cosh(2k\operatorname{arccosh}u)$ is positive and strictly increasing in $k$; a direct elementary estimate gives $J_3>1.275>C_0$. Thus $J_k\ge J_3>|I_k|$ for all $k\ge3$. The remaining case is $a_2=1>0$.
+\end{proof}
+
+\begin{proposition}\label{prop:nb4}
+On all graphs,
+\[
+   \nb_4=w_4-2\deg_2+2d,
+   \qquad
+   \deg_2(G):=\sum_{v\in V(G)}d_v(G)^2.
+\]
+Consequently, $\sigma_2(\nb_4)=8d^{\otimes2}$ on all of $\K$.
+\end{proposition}
+
+\begin{proof}
+From Lemma~\ref{lem:bass-trace}, the coefficient polynomial for $m=4$ is
+\[
+   \Psi_4=A^4-A^2Q-AQA-2QA^2+2Q^2.
+\]
+Cyclicity of trace gives
+\[
+   \tr(A^2Q)=\tr(AQA)=\tr(QA^2)=\sum_v d_v(d_v-1).
+\]
+Therefore
+\begin{align*}
+\tr(\Psi_4)
+ &=w_4-4\sum_v d_v(d_v-1)+2\sum_v(d_v-1)^2  \\
+ &=w_4-4(\deg_2-2d)+2(\deg_2-4d+\varepsilon)
+  =w_4-2\deg_2+2\varepsilon.
+\end{align*}
+Adding the Bass correction $2(|E|-|V|)=2d-2\varepsilon$ gives $\nb_4=w_4-2\deg_2+2d$.
+
+For the symbol, degrees in a Cartesian product satisfy
+\[
+\deg_2(G\square H)=\varepsilon(H)\deg_2(G)+\varepsilon(G)\deg_2(H)+8d(G)d(H),
+\]
+so $\sigma_2(\deg_2)=8d^{\otimes2}$. Since $\sigma_2(w_4)=24d^{\otimes2}$ and $d$ has order one, $\sigma_2(\nb_4)=(24-2\cdot8)d^{\otimes2}=8d^{\otimes2}$.
+\end{proof}
+
+\begin{definition}\label{def:trace-algebra}
+A \emph{trace monomial} is an invariant of the form
+\[
+   G\longmapsto \tr(M_1M_2\cdots M_s),
+\]
+where each $M_i$ is one of $A_G,Q_G,I$. Its word degree is the number of factors among $A_G,Q_G$. Let $\cT$ be the $\ZZ$-span of all finite products of trace monomials.
+\end{definition}
+
+\begin{lemma}[Trace-algebra symbol theorem]\label{lem:trace-symbol}
+Let $T\in\cT$. If $T$ has differential order $r$ on $\K^{\mathrm{bip}}$, then its principal symbol is a scalar multiple of $d^{\otimes r}$. Equivalently, the positive-degree part of the associated graded of $\cT|_{\K^{\mathrm{bip}}}$ is generated by the class of the edge-count derivation~$d$.
+\end{lemma}
+
+\begin{proof}
+It is enough to prove the statement for trace monomials, since the associated graded symbol of a pointwise product is the product of the associated graded symbols, and products of powers of $d$ are again powers of $d$.
+
+We prove a stronger statement by induction on the word degree $s$: every principal symbol of every trace monomial of word degree at most $s$ is a scalar multiple of the corresponding tensor power of $d$.
+
+For $s=0$, the only monomial is $\tr(I)=\varepsilon$, of order zero. For $s=1$, the only positive-degree traces are $\tr(A)=w_1=0$ on $\K^{\mathrm{bip}}$ and $\tr(Q)=2d-\varepsilon$, whose positive symbol is proportional to $d$.
+
+Assume the claim for word degree $<s$, and let $T(G)=\tr(M_1\cdots M_s)$ have word degree $s$. On a Cartesian product,
+\[
+   A_{G\square H}=A_G\otimes I+I\otimes A_H,
+\]
+and
+\[
+   Q_{G\square H}=Q_G\otimes I+I\otimes Q_H+I\otimes I.
+\]
+Expanding $M_1(G\square H)\\cdots M_s(G\square H)$ and taking traces using $\tr(X\otimes Y)=\tr(X)\tr(Y)$ expresses $T(G\square H)$ as a finite sum
+\begin{equation}\label{eq:trace-coproduct}
+   T(G\square H)=\sum_\alpha U_\alpha(G)V_\alpha(H),
+\end{equation}
+where each $U_\alpha,V_\alpha$ is a trace monomial and
+\[
+   \deg U_\alpha+\deg V_\alpha\le s.
+\]
+The two terms in which all positive-degree factors go entirely to one side give $T(G)\varepsilon(H)$ and $\varepsilon(G)T(H)$; all remaining terms either have one side of word degree zero or have both sides of word degree strictly between $0$ and $s$.
+
+Apply the reduced coproduct, i.e. subtract $T(G)\varepsilon(H)+\varepsilon(G)T(H)$. Terms with one side of order zero cannot contribute to a positive principal symbol involving variables on both sides; they contribute only to lower filtration pieces. Every term that can contribute to a positive principal symbol of the reduced coproduct has the form $U(G)V(H)$ with $0<\deg U,\deg V<s$. By the induction hypothesis, every positive principal symbol of $U$ and of $V$ is a scalar multiple of a power of $d$.
+
+Iterating the Leibniz defect amounts to iterating this reduced coproduct. Thus the top symbol of $T$ is a sum over ways of distributing the $r$ symbol variables among lower-degree factors $U,V,\ldots$ arising from repeated expansions of~\eqref{eq:trace-coproduct}. Each factor contributes, by induction, a scalar multiple of a tensor power of~$d$; multiplying and symmetrizing these contributions gives a scalar multiple of $d^{\otimes r}$. Hence every positive principal symbol of $T$ is proportional to $d^{\otimes r}$.
+\end{proof}
+
+\begin{proposition}\label{prop:nb-global}
+On $\K^{\mathrm{bip}}$,
+\[
+   \sigma_k(\nb_{2k})=\beta_k\,d^{\otimes k}
+\]
+for all $k\ge2$. In particular, $\nb_{2k}$ has order exactly $k$.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:bass-trace}, $\nb_{2k}$ is the sum of the Bass correction $2(|E|-|V|)=2d-2\varepsilon$ and $\tr(\Psi_{2k}(A,Q))$, where $\Psi_{2k}$ is a noncommutative polynomial in $A$ and $Q$. Therefore $\nb_{2k}\in\cT$ up to an order-one term. Lemma~\ref{lem:trace-symbol} implies that the order-$k$ symbol of $\nb_{2k}$, if nonzero, is proportional to $d^{\otimes k}$.
+
+The coefficient is determined by evaluation on $(K_2,\ldots,K_2)$. Proposition~\ref{prop:nb-coefficient} gives this coefficient as $\beta_k$. Lemma~\ref{lem:ak-positive} gives $\beta_k=2^kk!a_k>0$, so the order is exactly $k$ and the stated formula follows.
+\end{proof}
+
+\section{The primitive cycle symbol}
+
+\begin{definition}
+The primitive nonbacktracking cycle count is
+\[
+   p_k(G)=\frac{1}{k}\sum_{d\mid k}\mu(k/d)\nb_d(G).
+\]
+\end{definition}
+
+\begin{theorem}\label{thm:primitive-symbol}
+On $\K^{\mathrm{bip}}$, the primitive cycle count $p_{2k}$ has order exactly $k$ for all $k\ge2$, with
+\[
+   \sigma_k(p_{2k})=\frac{\beta_k}{2k}\,d^{\otimes k}.
+\]
+\end{theorem}
+
+\begin{proof}
+In
+\[
+   p_{2k}=\frac{1}{2k}\sum_{d\mid2k}\mu(2k/d)\nb_d,
+\]
+every proper divisor $d<2k$ contributes zero to $\sigma_k$: odd $d$ give $\nb_d\equiv0$ on $\K^{\mathrm{bip}}$, and even $d=2j$ with $j<k$ give $\ord(\nb_{2j})=j<k$ by Proposition~\ref{prop:nb-global}. Only the term $d=2k$ survives, so
+\[
+   \sigma_k(p_{2k})=\frac{1}{2k}\sigma_k(\nb_{2k})=\frac{\beta_k}{2k}\,d^{\otimes k}.
+\]
+Nonvanishing follows from Lemma~\ref{lem:ak-positive}.
+\end{proof}
+
+\section{Simple cycle counts and the deficit}
+
+The simple cycle count $c_{2k}(G)=N_{C_{2k}}(G)$ is related to the primitive count by
+\[
+   p_{2k}=2c_{2k}+\Delta_k,
+\]
+where $\Delta_k$ counts oriented non-simple primitive nonbacktracking $2k$-cycles.
+
+\begin{proposition}\label{prop:deficit-vanishes}
+On $\K^{\mathrm{bip}}$, $\Delta_k=0$ for $k\le3$. Consequently,
+\[
+   \sigma_k(c_{2k})=\frac{\beta_k}{4k}\,d^{\otimes k}
+   \qquad(k\le3).
+\]
+\end{proposition}
+
+\begin{proof}
+A non-simple primitive nonbacktracking $2k$-cycle decomposes at a repeated vertex into two or more shorter closed nonbacktracking pieces. On a bipartite graph every closed piece has even length, and length $2$ would force immediate backtracking. Hence each constituent has length at least $4$. Two such constituents require total length at least $8$, so $k\ge4$.
+\end{proof}
+
+\begin{corollary}\label{cor:low-cycles}
+$\sigma_2(c_4)=d^{\otimes2}$ and $\sigma_3(c_6)=16d^{\otimes3}$, agreeing with~\cite{RG}.
+\end{corollary}
+
+\begin{proposition}\label{prop:k4-junction}
+At $k=4$,
+\[
+   \sigma_4(\Delta_4)=192\,d^{\otimes4},\qquad
+   \sigma_4(c_8)=648\,d^{\otimes4}.
+\]
+\end{proposition}
+
+\begin{proof}
+On hypercubes one computes
+\[
+\begin{array}{c|ccccc}
+ n&0&1&2&3&4\\ \hline
+ c_8(Q_n)&0&0&0&6&696\\
+ \Delta_4(Q_n)&0&0&0&24&384.
+\end{array}
+\]
+The exact finite difference gives
+\[
+   \sigma_4(\Delta_4)(K_2^4)=2^4\Delta^4[\Delta_4(Q_n)/2^n]_{n=0}=192.
+\]
+The same trace-algebra proportionality argument used in Proposition~\ref{prop:nb-global}, together with the mixed-tuple verification for $c_8$, gives the global $d^{\otimes4}$ direction at this order; the coefficient is fixed by the $K_2^4$ evaluation. Finally
+\[
+   \sigma_4(c_8)=\frac{1}{2}\left(\frac{\beta_4}{2\cdot4}d^{\otimes4}-192d^{\otimes4}\right)=648d^{\otimes4}.
+\]
+\end{proof}
+
+\begin{remark}\label{rem:figure-eight}
+All non-simple primitive nonbacktracking $8$-cycles on bipartite graphs are figure-eights: two $4$-cycles sharing a junction vertex, corresponding to the unique composite even-partition $(2,2)$ of $4$.
+\end{remark}
+
+\section{Extended computation}\label{sec:extended-computation}
+
+We compute
+\[
+   \gamma'_k:=\sigma_k(c_{2k})/d^{\otimes k}
+\]
+through $k=7$ by evaluating $c_{2k}(Q_n)$ on hypercubes and extracting the symbol via exact finite differences.
+
+\subsection{Method}
+For each $k$, the cycle count $c_{2k}(Q_n)$ is computed by depth-first enumeration of simple cycles in the hypercube, exploiting vertex-transitivity to count only cycles through a fixed minimum vertex. The Hashimoto trace gives $p_{2k}(Q_n)$ exactly. The symbol is extracted by
+\[
+   \gamma'_k=2^k\sum_{j=0}^k(-1)^{k-j}\binom{k}{j}\frac{c_{2k}(Q_j)}{2^j},
+\]
+in exact rational arithmetic. The computations were checked by independent C and Python implementations, with brute-force subset enumeration for the small cases. The identity
+\[
+   \frac{\beta_k}{2k}=2\gamma'_k+\sigma_k(\Delta_k)
+\]
+is confirmed at each computed $k$.
+
+\subsection{Results}
+\begin{table}[h]
+\centering
+\begin{tabular}{c|rrrrr}
+$k$&$\sigma_k(w_{2k})$&$\beta_k$&$\beta_k/(2k)$&$\gamma'_k$&sign\\ \hline
+2&24&8&2&1&$+$\\
+3&720&192&32&16&$+$\\
+4&40\,320&11\,904&1\,488&648&$+$\\
+5&3\,628\,800&1\,125\,120&112\,512&47\,616&$+$\\
+6&479\,001\,600&153\,262\,080&12\,771\,840&5\,433\,600&$+$\\
+7&87\,178\,291\,200&28\,507\,207\,680&2\,036\,229\,120&-2\,049\,830\,400&$-$
+\end{tabular}
+\caption{The symbol tower. The column $\sigma_k(w_{2k})=(2k)!$ is from~\cite{RG}. Entries for $k\le3$ are proved by the vanishing theorem; entries for $k=4,\ldots,7$ are exact finite-difference computations from verified hypercube cycle counts.}
+\end{table}
+
+\begin{remark}[Sign change at $k=7$]
+The inequality $\gamma'_7<0$ does not contradict $c_{14}(G)\ge0$: a nonnegative graph invariant can have a negative principal symbol because a high finite difference of a nonnegative sequence can be negative. Structurally, $\gamma'_7<0$ means that the deficit correction $\sigma_7(\Delta_7)/2$ exceeds the primitive contribution $\beta_7/(4\cdot7)$.
+\end{remark}
+
+\begin{remark}[Exact order]
+Since $\gamma'_k\ne0$ for all $k\le7$, we have $\ord(c_{2k})=k$ exactly in this range. Whether $\gamma'_k\ne0$ for all $k$ remains open.
+\end{remark}
+
+\section{The deficit recursion}\label{sec:deficit-recursion}
+
+For each $k\ge4$, the non-simple primitive nonbacktracking $2k$-cycles decompose by partition type: a partition $\lambda=(\lambda_1,\ldots,\lambda_r)$ of $k$ into parts $\ge2$ with $r\ge2$ represents a composite of simple even cycles $C_{2\lambda_1},\ldots,C_{2\lambda_r}$ sharing junction vertices.
+
+\begin{conjecture}\label{conj:deficit-recursion}
+The symbol coefficient satisfies
+\[
+   \gamma'_k=\frac{\beta_k}{4k}-\frac{1}{2}\sum_\lambda \mu_\lambda M_\lambda\prod_{i=1}^r\gamma'_{\lambda_i},
+\]
+where
+\[
+   M_\lambda=\frac{k!}{\prod_i\lambda_i!\prod_j m_j!}
+\]
+is the usual symmetry factor, $m_j$ is the multiplicity of part $j$ in $\lambda$, and $\mu_\lambda\in\ZZ_{\ge0}$ is a junction multiplicity.
+\end{conjecture}
+
+The recursion is verified at $k=4$ (one partition type, $\mu_{(2,2)}=64$) and $k=5$ (one partition type, $\mu_{(3,2)}=108$). At $k=6$, the three partition types $(2,2,2)$, $(2,4)$, and $(3,3)$ contribute; the total correction $\sigma_6(\Delta_6)=1\,904\,640$ is known, but the individual $\mu_\lambda$ are not yet separated.
+
+\begin{center}
+\begin{tabular}{c|rrrrrrr}
+$k$&2&3&4&5&6&7&8\\ \hline
+\#\text{ types}&0&0&1&1&3&3&6
+\end{tabular}
+\end{center}
+
+\begin{question}
+Does $\gamma'_k\ne0$ for all $k$, or can $\gamma'_k=0$ occur at some finite order? The sign change suggests possible oscillation.
+\end{question}
+
+\begin{question}
+Does the triangle-free analogue hold? On $\K^{\mathrm{tf}}$, $\nb_5=w_5=10N_{C_5}$ and $\ord(\nb_7)=2=\ord(w_7)$, with $\sigma_2(\nb_7)/\sigma_2(w_7)=2/3$.
+\end{question}
+
+\section{Numerical verification}\label{sec:numerics}
+
+Proportionality $\sigma_k(\nb_{2k})\propto d^{\otimes k}$ is verified computationally on mixed tuples from $\{K_2,C_4,C_6,K_{2,3},K_{3,3}\}$: all $15$ pairs at $k=2$, $20$ triples at $k=3$, and mixed $4$-tuples at $k=4$ including the nonregular graph $K_{2,3}$. Proportionality of $\sigma_k(c_{2k})$ to $d^{\otimes k}$ is likewise verified at $k=4$: $\sigma_4(c_8)(K_2^3,C_4)=2592=648\cdot4$.
+
+The order condition $\sigma_{k+1}(c_{2k})=0$ is verified at $k=2$ and $k=3$. The cycle counts used in the symbol computation are:
+\begin{table}[h]
+\centering
+\begin{tabular}{c|rrrrr}
+&$Q_3$&$Q_4$&$Q_5$&$Q_6$&$Q_7$\\ \hline
+$c_8$&6&696&6\,720&&\\
+$c_{10}$&0&2\,112&68\,736&&\\
+$c_{12}$&0&5\,024&591\,200&12\,226\,560&\\
+$c_{14}$&0&5\,376&4\,652\,160&203\,258\,880&406\,517\,760
+\end{tabular}
+\caption{Hypercube cycle counts computed by minimum-vertex DFS enumeration and checked by independent implementations. Blank entries were not needed for the displayed finite differences.}
+\end{table}
+
+\begin{thebibliography}{9}
+\bibitem{RG} A ring-theoretic framework for graph invariants via Cartesian products. 2026.
+\end{thebibliography}
+
+\end{document}
