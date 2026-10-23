@@ -1,0 +1,218 @@
+[
+  {
+    "n": 4,
+    "construction": "full",
+    "edges": 32,
+    "edge_density": "1",
+    "M4": 648,
+    "ambient_M4": 648,
+    "auxiliary_C4": 48
+  },
+  {
+    "n": 4,
+    "construction": "even_lower_layer",
+    "edges": 16,
+    "edge_density": "1/2",
+    "M4": 3,
+    "ambient_M4": 648,
+    "auxiliary_C4": 3
+  },
+  {
+    "n": 4,
+    "construction": "middle_layer",
+    "edges": 12,
+    "edge_density": "3/8",
+    "M4": 3,
+    "ambient_M4": 648,
+    "auxiliary_C4": 3
+  },
+  {
+    "n": 4,
+    "construction": "half_directions",
+    "edges": 16,
+    "edge_density": "1/2",
+    "M4": 0,
+    "ambient_M4": 648,
+    "auxiliary_C4": 0
+  },
+  {
+    "n": 4,
+    "construction": "fixed_three_directions",
+    "edges": 24,
+    "edge_density": "3/4",
+    "M4": 0,
+    "ambient_M4": 648,
+    "auxiliary_C4": 0
+  },
+  {
+    "n": 4,
+    "construction": "parity_other_coordinates",
+    "edges": 16,
+    "edge_density": "1/2",
+    "M4": 3,
+    "ambient_M4": 648,
+    "auxiliary_C4": 3
+  },
+  {
+    "n": 5,
+    "construction": "full",
+    "edges": 80,
+    "edge_density": "1",
+    "M4": 6480,
+    "ambient_M4": 6480,
+    "auxiliary_C4": 480
+  },
+  {
+    "n": 5,
+    "construction": "even_lower_layer",
+    "edges": 40,
+    "edge_density": "1/2",
+    "M4": 30,
+    "ambient_M4": 6480,
+    "auxiliary_C4": 30
+  },
+  {
+    "n": 5,
+    "construction": "middle_layer",
+    "edges": 30,
+    "edge_density": "3/8",
+    "M4": 30,
+    "ambient_M4": 6480,
+    "auxiliary_C4": 30
+  },
+  {
+    "n": 5,
+    "construction": "half_directions",
+    "edges": 32,
+    "edge_density": "2/5",
+    "M4": 0,
+    "ambient_M4": 6480,
+    "auxiliary_C4": 0
+  },
+  {
+    "n": 5,
+    "construction": "fixed_three_directions",
+    "edges": 48,
+    "edge_density": "3/5",
+    "M4": 0,
+    "ambient_M4": 6480,
+    "auxiliary_C4": 0
+  },
+  {
+    "n": 5,
+    "construction": "parity_other_coordinates",
+    "edges": 40,
+    "edge_density": "1/2",
+    "M4": 30,
+    "ambient_M4": 6480,
+    "auxiliary_C4": 30
+  },
+  {
+    "n": 6,
+    "construction": "full",
+    "edges": 192,
+    "edge_density": "1",
+    "M4": 38880,
+    "ambient_M4": 38880,
+    "auxiliary_C4": 2880
+  },
+  {
+    "n": 6,
+    "construction": "even_lower_layer",
+    "edges": 96,
+    "edge_density": "1/2",
+    "M4": 180,
+    "ambient_M4": 38880,
+    "auxiliary_C4": 180
+  },
+  {
+    "n": 6,
+    "construction": "middle_layer",
+    "edges": 60,
+    "edge_density": "5/16",
+    "M4": 135,
+    "ambient_M4": 38880,
+    "auxiliary_C4": 135
+  },
+  {
+    "n": 6,
+    "construction": "half_directions",
+    "edges": 96,
+    "edge_density": "1/2",
+    "M4": 0,
+    "ambient_M4": 38880,
+    "auxiliary_C4": 0
+  },
+  {
+    "n": 6,
+    "construction": "fixed_three_directions",
+    "edges": 96,
+    "edge_density": "1/2",
+    "M4": 0,
+    "ambient_M4": 38880,
+    "auxiliary_C4": 0
+  },
+  {
+    "n": 6,
+    "construction": "parity_other_coordinates",
+    "edges": 96,
+    "edge_density": "1/2",
+    "M4": 180,
+    "ambient_M4": 38880,
+    "auxiliary_C4": 180
+  },
+  {
+    "n": 7,
+    "construction": "full",
+    "edges": 448,
+    "edge_density": "1",
+    "M4": 181440,
+    "ambient_M4": 181440,
+    "auxiliary_C4": 13440
+  },
+  {
+    "n": 7,
+    "construction": "even_lower_layer",
+    "edges": 224,
+    "edge_density": "1/2",
+    "M4": 840,
+    "ambient_M4": 181440,
+    "auxiliary_C4": 840
+  },
+  {
+    "n": 7,
+    "construction": "middle_layer",
+    "edges": 140,
+    "edge_density": "5/16",
+    "M4": 630,
+    "ambient_M4": 181440,
+    "auxiliary_C4": 630
+  },
+  {
+    "n": 7,
+    "construction": "half_directions",
+    "edges": 192,
+    "edge_density": "3/7",
+    "M4": 0,
+    "ambient_M4": 181440,
+    "auxiliary_C4": 0
+  },
+  {
+    "n": 7,
+    "construction": "fixed_three_directions",
+    "edges": 192,
+    "edge_density": "3/7",
+    "M4": 0,
+    "ambient_M4": 181440,
+    "auxiliary_C4": 0
+  },
+  {
+    "n": 7,
+    "construction": "parity_other_coordinates",
+    "edges": 224,
+    "edge_density": "1/2",
+    "M4": 840,
+    "ambient_M4": 181440,
+    "auxiliary_C4": 840
+  }
+]
