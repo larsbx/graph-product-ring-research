@@ -82,3 +82,14 @@ ordinary even-cycle order and pure-symbol formula, including
 `sigma_4(c8)=648 d^tensor4` and `sigma_7(c14)=880865280 d^tensor7`.
 These proof records are registered as working pending acceptance review. Replay with
 `python3 -m unittest discover -s tests -v` (Python >=3.10 and g++ required).
+
+## Lean finite combinatorial component
+
+The [focused Lean proof record](proof/finite-maximal-support-lean.md) establishes
+cyclic double-occurrence words modulo relabeling ↔ adjacent-avoiding perfect
+matchings, the exact k! and 2^k normalization, positivity for k≥2, actual
+hypercube traversal primitivity, and separate rotation/reversal counts for
+simple cycles. [Replay instructions](formal/README.md) include the pinned
+Lean build, transitive axiom audit and independent small-case vectors.
+The broader graph-ring results retain working status; issue #22 and the
+mathematical-review and prior-art gates remain open.

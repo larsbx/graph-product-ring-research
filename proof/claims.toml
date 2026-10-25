@@ -129,3 +129,11 @@ status = "working"
 statement = "For Delta_k=p_(2k)-2c_(2k), D_k(Delta_k) = eta_k d^tensor k, eta_k=2^k k! (R_k - a_k_simple)/(2k) >= 0, where a_k_simple is the connected-pairing count."
 authority = "proof/nb-primitive-support-symbol.md#5-primitive-symbols-and-the-deficit"
 notes = "Determines only aggregate top deficit, not lower-order terms or conjectural mu_lambda junction partition decomposition. Relies on existing working GPR-C2K proof record. Do not infer Delta_k identically zero for k<=3 on full ring."
+
+[[claim]]
+id = "GPR-FINITE-MAXIMAL-WORD-LEAN"
+title = "Finite cyclic double-occurrence matching and hypercube interpretation"
+status = "working"
+statement = "Kernel-checked: indexed cyclic adjacent-distinct double-occurrence words modulo coordinate relabeling biject with adjacent-avoiding perfect matchings; card W_k=k! R_k, beta_k=2^k k! R_k>0 for k>=2; actual maximal-support cube traversals are primitive and have 2k-root oriented rotation classes; simple traversal classes have 4k roots/orientations."
+authority = "proof/finite-maximal-support-lean.md"
+notes = "Lean 4.24.0 with pinned Mathlib, transitive axiom allowlist and independent bounded replay. Formal verification is limited to the finite component; graph-ring bridge, independent mathematical acceptance and prior-art obligations remain separate. No existing claim is promoted; issue #22 stays open."
