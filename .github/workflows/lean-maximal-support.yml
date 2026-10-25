@@ -16,12 +16,13 @@ jobs:
           test: 'false'
           lint: 'false'
           use-mathlib-cache: 'false'
+          use-github-cache: 'false'
       - name: Fetch only the pinned Mathlib import closure
         working-directory: formal
         run: >-
-          lake exe cache get Mathlib/Tactic.lean Mathlib/Data/Fintype/Perm.lean
-          Mathlib/Data/Fintype/BigOperators.lean Mathlib/Data/Setoid/Basic.lean
-          Mathlib/Algebra/Group/Fin/Basic.lean
+          lake exe cache get Mathlib.Tactic Mathlib.Data.Fintype.Perm
+          Mathlib.Data.Fintype.BigOperators Mathlib.Data.Setoid.Basic
+          Mathlib.Algebra.Group.Fin.Basic
       - name: Kernel build and transitive axiom allowlist
         run: python3 tools/check_lean.py
       - name: Independently enumerate words, matchings and actual vertex orbits

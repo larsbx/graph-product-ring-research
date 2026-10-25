@@ -7,7 +7,7 @@ Git dependencies are fixed in `lake-manifest.json`.
 From this directory, with Elan installed:
 
 ```sh
-lake exe cache get Mathlib/Tactic.lean Mathlib/Data/Fintype/Perm.lean Mathlib/Data/Fintype/BigOperators.lean Mathlib/Data/Setoid/Basic.lean Mathlib/Algebra/Group/Fin/Basic.lean
+lake exe cache get Mathlib.Tactic Mathlib.Data.Fintype.Perm Mathlib.Data.Fintype.BigOperators Mathlib.Data.Setoid.Basic Mathlib.Algebra.Group.Fin.Basic
 cd ..
 python3 tools/check_lean.py
 python3 oracles/lean_word_vectors.py
