@@ -1,0 +1,28 @@
+name: Lean maximal-support finite component
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  lean-maximal-support:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'false'
+      - name: Fetch only the pinned Mathlib import closure
+        working-directory: formal
+        run: >-
+          lake exe cache get Mathlib/Tactic.lean Mathlib/Data/Fintype/Perm.lean
+          Mathlib/Data/Fintype/BigOperators.lean Mathlib/Data/Setoid/Basic.lean
+          Mathlib/Algebra/Group/Fin/Basic.lean
+      - name: Kernel build and transitive axiom allowlist
+        run: python3 tools/check_lean.py
+      - name: Independently enumerate words, matchings and actual vertex orbits
+        run: python3 oracles/lean_word_vectors.py
