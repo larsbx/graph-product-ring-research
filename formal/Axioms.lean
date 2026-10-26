@@ -31,3 +31,20 @@ import GraphProductRing
 #print axioms GraphProductRing.centered_evaluation
 #print axioms GraphProductRing.support_cancellation
 #print axioms GraphProductRing.full_support_extraction
+
+#print axioms GraphProductRing.step_axis_unique
+#print axioms GraphProductRing.product_trajectory_injective
+#print axioms GraphProductRing.no_single_change
+#print axioms GraphProductRing.used_axis_at_least_two
+#print axioms GraphProductRing.full_support_budget
+#print axioms GraphProductRing.product_maximal_twice
+#print axioms GraphProductRing.maximal_factor_edge
+#print axioms GraphProductRing.maximal_axis_no_repeat
+#print axioms GraphProductRing.productMaximalWord
+#print axioms GraphProductRing.full_support_empty
+#print axioms GraphProductRing.edge_recovery_unique
+#print axioms GraphProductRing.product_edge_walk_unique
+#print axioms GraphProductRing.fullSupportEdgeBijection
+#print axioms GraphProductRing.full_support_arc_count
+#print axioms GraphProductRing.factor_arc_count
+#print axioms GraphProductRing.full_support_factor_count

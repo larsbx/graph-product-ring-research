@@ -7,3 +7,5 @@ import GraphProductRing.MaximalSupport
 import GraphProductRing.GraphRing
 import GraphProductRing.Augmentation
 import GraphProductRing.CenteredSupport
+import GraphProductRing.CartesianWalks
+import GraphProductRing.FactorMultiplicity

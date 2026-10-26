@@ -7,10 +7,11 @@ Git dependencies are fixed in `lake-manifest.json`.
 From this directory, with Elan installed:
 
 ```sh
-lake exe cache get Mathlib.Tactic Mathlib.Data.Fintype.Perm Mathlib.Data.Fintype.BigOperators Mathlib.Data.Setoid.Basic Mathlib.Algebra.Group.Fin.Basic Mathlib.RingTheory.FreeCommRing Mathlib.RingTheory.Ideal.Quotient.Operations Mathlib.RingTheory.Ideal.Operations Mathlib.Combinatorics.SimpleGraph.Sum Mathlib.Combinatorics.SimpleGraph.Prod
+lake exe cache get Mathlib.Tactic Mathlib.Data.Fintype.Perm Mathlib.Data.Fintype.BigOperators Mathlib.Data.Setoid.Basic Mathlib.Algebra.Group.Fin.Basic Mathlib.RingTheory.FreeCommRing Mathlib.RingTheory.Ideal.Quotient.Operations Mathlib.RingTheory.Ideal.Operations Mathlib.Combinatorics.SimpleGraph.Sum Mathlib.Combinatorics.SimpleGraph.Prod Mathlib.Combinatorics.SimpleGraph.DegreeSum
 cd ..
 python3 tools/check_lean.py
 python3 oracles/lean_word_vectors.py
+python3 oracles/graph_ring_support.py
 ```
 
 The gate builds every module with warnings treated as errors, then checks the
