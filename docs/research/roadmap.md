@@ -113,3 +113,11 @@ and evidence.
 This supersedes the preceding checkpoint's conditional symbol interpretation.
 The c8 lower-order product formula, literature/acceptance review, and source
 reconciliation remain open; registry status is working rather than proved.
+
+## Bridge repository allocation (2026-10-26)
+
+See the [bridge repository map](bridge-repositories.md) for the five selected
+destinations and their first obligations. Provisioning/access is unverified
+(404 on all five metadata reads); this allocation is not a creation receipt.
+Reuse the existing chord-identification proof, preserve claim status, and keep
+the Vizing bridge separate from the existing domination program.
