@@ -1,0 +1,77 @@
+{
+  "cases": [
+    {
+      "case": "P3,K3",
+      "length": 4,
+      "rooted": 48,
+      "centered": 48,
+      "full_support": 48,
+      "recovered_edge_word_tuples": 48
+    },
+    {
+      "case": "irregular,K2",
+      "length": 4,
+      "rooted": 56,
+      "centered": 40,
+      "full_support": 40,
+      "recovered_edge_word_tuples": 40
+    },
+    {
+      "case": "disconnected,K2",
+      "length": 4,
+      "rooted": 56,
+      "centered": 40,
+      "full_support": 40,
+      "recovered_edge_word_tuples": 40
+    },
+    {
+      "case": "K2+K1,P3,K3",
+      "length": 6,
+      "rooted": 1674,
+      "centered": 1152,
+      "full_support": 1152,
+      "recovered_edge_word_tuples": 1152
+    },
+    {
+      "case": "empty,K3",
+      "length": 4,
+      "rooted": 0,
+      "centered": 0,
+      "full_support": 0,
+      "recovered_edge_word_tuples": 0
+    },
+    {
+      "case": "edgeless,K3",
+      "length": 4,
+      "rooted": 0,
+      "centered": 0,
+      "full_support": 0,
+      "recovered_edge_word_tuples": 0
+    },
+    {
+      "case": "P3,K2,K3-upper",
+      "length": 4,
+      "rooted": 216,
+      "centered": 0,
+      "full_support": 0,
+      "recovered_edge_word_tuples": null
+    },
+    {
+      "case": "disconnected,K2-upper",
+      "length": 3,
+      "rooted": 0,
+      "centered": 0,
+      "full_support": 0,
+      "recovered_edge_word_tuples": null
+    }
+  ],
+  "uncentered_counterexample": {
+    "rooted": 48,
+    "centered": 32
+  },
+  "seam_counterexample": {
+    "linear_only": 2,
+    "cyclic": 0
+  },
+  "status": "bounded independent evidence; claim statuses unchanged"
+}

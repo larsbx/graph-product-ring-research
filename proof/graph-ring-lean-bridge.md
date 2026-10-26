@@ -65,3 +65,53 @@ Replay `python3 tools/check_lean.py` and `python3 oracles/lean_word_vectors.py` 
 specified in `formal/README.md`. The expanded API axiom audit permits only
 `propext`, `Classical.choice`, and `Quot.sound`. All modules compile with warnings
 as errors. No `sorry`, native proof-evaluation axiom, or custom axiom is admitted.
+
+## Stage B: arbitrary-factor trajectories and exact multiplicity
+
+`CartesianWalks.lean` defines cyclic sequences of actual dependent-tuples of
+factor vertices. Each step includes an adjacency-checked coordinate witness,
+proved uniquely recoverable from the trajectory. Both closure and the NB seam
+are part of the cyclic indexing. None of the definitions presupposes double
+occurrence, edge confinement, or an allowed Word.
+
+`no_single_change` proves by an exact integer-indicator telescoping sum that a
+function on a finite permutation cannot change at just one place. Applied to
+Cartesian coordinates it proves every used coordinate occurs at least twice,
+so `full_support_budget` gives `2q ≤ m` for any full-support length-m walk, and
+`full_support_empty` excludes all such walks when `m < 2q`. This is an actual-walk
+bound, still distinct from a statement about the graph-ring invariant on I^q.
+
+At length 2k, `product_maximal_twice` forces every coordinate to occur twice.
+`maximal_factor_edge` then confines its actual vertex projection to the two
+endpoints of a factor edge. `maximal_axis_no_repeat` proves that consecutive
+equal coordinates would reverse that edge; this includes last–first adjacency.
+`productMaximalWord` admits the recovered coordinates to the existing `Word k`
+type. It does not repeat the word/matching proofs or assume their hypotheses.
+
+`FactorMultiplicity.lean` supplies actual forward realization, uniquely
+recoverable oriented edges, and uniqueness of an actual trajectory with those
+edges and the given word. `fullSupportEdgeBijection` establishes
+
+`FullProductWalk G ≃ (Π i, FactorArc (G i)) × Word k`.
+
+The first endpoint of each arc is the initial coordinate of the walk. Thus
+oriented arcs already count the 2^k starting-endpoint choices: there is no extra
+2^k multiplier on this bijection. Mathlib's independently established dart/edge
+cardinality and the merged `word_count` yield `full_support_factor_count`:
+
+`card (FullProductWalk G) = beta k * product_i |E(G_i)|`.
+
+This is the exact all-k factor multiplicity at the level of actual walks.
+The graph-ring global symbol still requires the additive count descent and
+fiber correspondence listed in Stage A obligations 3–4. No conditional assembly
+lemma is substituted for those missing proofs.
+
+The independent `oracles/graph_ring_support.py` imports no repository oracle. It
+compares explicit vertex DFS with sparse arc-matrix traces; centered sums with
+full-support sets; and recovered oriented-edge/word tuples with independently
+enumerated Cartesian products of those data, checking injectivity, surjectivity,
+and actual trajectory reconstruction. Fixtures include nonregular bipartite,
+nonbipartite, disconnected, isolated-vertex, edgeless and empty factors. Negative
+controls show the uncentered Q₃ length-four count 48 differs from its centered
+defect 32, and a square with a leaf has two linearly NB length-six closed walks
+but no cyclically NB one. The checked-in receipt is bounded computational evidence.
