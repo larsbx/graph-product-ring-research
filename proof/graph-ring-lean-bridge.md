@@ -115,3 +115,30 @@ nonbipartite, disconnected, isolated-vertex, edgeless and empty factors. Negativ
 controls show the uncentered Q₃ length-four count 48 differs from its centered
 defect 32, and a square with a leaf has two linearly NB length-six closed walks
 but no cyclically NB one. The checked-in receipt is bounded computational evidence.
+
+## Stage C: actual count descent and concrete product classes
+
+`GraphRig.lean` constructs finite graph isomorphism classes as a commutative
+semiring, deriving distributivity, unit and empty laws from actual vertex
+isomorphisms. `AdditiveLift.lean` proves every additive integer invariant of
+these classes extends uniquely to `GraphRing`. Its proof evaluates free-ring
+monomials in that rig, extends by the free abelian group, and proves every
+presentation relation is annihilated **after every ring multiplier**, before
+quotient descent. Thus nonmultiplicative counts are not passed to the
+ring-homomorphism universal property by mistake.
+
+`WalkInvariant.lean` defines `NBWalk` as actual cyclic vertex trajectories,
+without coordinate witnesses. It proves isomorphism invariance and a bijection
+between walks in a disjoint union and the disjoint union of the two walk sets.
+The tag of a vertex is constant around the walk, so no trajectory can switch
+summands. `nbInvariant m` is the resulting ℤ-linear invariant on virtual graph
+classes, with its actual graph evaluation proved in `nbInvariant_class`.
+
+`CartesianRing.lean` proves the actual dependent Cartesian tuple graph has
+class equal to the product of the factor classes, including the zero-factor
+K₁ case. `DiscreteGraphs.lean` proves an edgeless graph is its vertex count
+copies of K₁ in the ring. These are structural graph results, with no NB symbol
+claim assumed. The remaining assembly must identify coordinate masking with
+actual walk restriction and apply the checked support cancellation. It must
+then use the checked ideal-power spanning, rather than infer a global theorem
+from the finite factor cardinality alone.

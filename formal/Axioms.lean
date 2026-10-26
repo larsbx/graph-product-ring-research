@@ -48,3 +48,13 @@ import GraphProductRing
 #print axioms GraphProductRing.full_support_arc_count
 #print axioms GraphProductRing.factor_arc_count
 #print axioms GraphProductRing.full_support_factor_count
+
+#print axioms GraphProductRing.rigClass_iso
+#print axioms GraphProductRing.liftAdditive_class
+#print axioms GraphProductRing.additive_hom_ext
+#print axioms GraphProductRing.nbWalkSum
+#print axioms GraphProductRing.nbGraphCount_iso
+#print axioms GraphProductRing.nbGraphCount_sum
+#print axioms GraphProductRing.nbInvariant_class
+#print axioms GraphProductRing.productGraph_class
+#print axioms GraphProductRing.discrete_class
