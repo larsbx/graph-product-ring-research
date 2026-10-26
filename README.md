@@ -93,3 +93,10 @@ simple cycles. [Replay instructions](formal/README.md) include the pinned
 Lean build, transitive axiom audit and independent small-case vectors.
 The broader graph-ring results retain working status; issue #22 and the
 mathematical-review and prior-art gates remain open.
+
+## Research bridge repositories
+
+The [bridge repository map](docs/research/bridge-repositories.md) records the five
+selected research destinations, their scopes, first obligations, shared-source
+ownership, and provisioning status. Planned names are distinguished from verified
+created repositories.
