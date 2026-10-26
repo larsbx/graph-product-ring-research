@@ -16,3 +16,18 @@ import GraphProductRing
 
 #print axioms GraphProductRing.maximal_support_twice
 #print axioms GraphProductRing.admitMaximalWord
+
+#print axioms GraphProductRing.class_iso
+#print axioms GraphProductRing.class_sum
+#print axioms GraphProductRing.class_box
+#print axioms GraphProductRing.epsilon_class
+#print axioms GraphProductRing.liftInvariant_class
+#print axioms GraphProductRing.graphRing_hom_ext
+#print axioms GraphProductRing.graph_additive_span
+#print axioms GraphProductRing.augmentation_additive_span
+#print axioms GraphProductRing.augmentation_power_span
+#print axioms GraphProductRing.vanishes_on_power_iff
+#print axioms GraphProductRing.centered_expansion
+#print axioms GraphProductRing.centered_evaluation
+#print axioms GraphProductRing.support_cancellation
+#print axioms GraphProductRing.full_support_extraction
