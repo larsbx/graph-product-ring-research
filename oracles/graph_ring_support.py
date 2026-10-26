@@ -143,7 +143,20 @@ def run():
     linear = len(list(trajectories([irregular], 6, seam=False)))
     cyclic = len(list(trajectories([irregular], 6)))
     assert linear > cyclic
+    # Signed virtual factors exercise extension by multilinearity independently.
+    def virtual_defect(virtuals, m):
+        return sum(prod(c for c, _ in selection)
+                   * centered([g for _, g in selection], m)
+                   for selection in product(*virtuals))
+    virtuals = [[(1,k2),(-2,p3)], [(1,k3),(-2,k2)]]
+    edge_product = prod(sum(c * sum(map(len, g))//2 for c,g in terms)
+                        for terms in virtuals)
+    virtual_symbol = virtual_defect(virtuals, 4)
+    assert virtual_symbol == 8*edge_product == -24
+    virtual_upper = virtual_defect(virtuals + [[(1,k2),(-1,p3)]], 4)
+    assert virtual_upper == 0
     return dict(cases=receipts,
+                virtual_symbol=virtual_symbol, virtual_upper=virtual_upper,
                 uncentered_counterexample=dict(rooted=48, centered=32),
                 seam_counterexample=dict(linear_only=linear, cyclic=cyclic),
                 status='bounded independent evidence; claim statuses unchanged')

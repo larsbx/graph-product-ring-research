@@ -58,3 +58,19 @@ import GraphProductRing
 #print axioms GraphProductRing.nbInvariant_class
 #print axioms GraphProductRing.productGraph_class
 #print axioms GraphProductRing.discrete_class
+
+#print axioms GraphProductRing.productNBEquiv
+#print axioms GraphProductRing.nb_product_count
+#print axioms GraphProductRing.masked_product_class
+#print axioms GraphProductRing.maskedWalkEquiv
+#print axioms GraphProductRing.masked_count
+#print axioms GraphProductRing.nb_centered_full_support
+#print axioms GraphProductRing.edgeInvariant_class
+#print axioms GraphProductRing.multilinear_graph_ext
+#print axioms GraphProductRing.nb_upper_filtration
+#print axioms GraphProductRing.nb_graph_symbol
+#print axioms GraphProductRing.nb_global_symbol
+#print axioms GraphProductRing.nb_global_symbol_apply
+#print axioms GraphProductRing.nb_exact_order
+#print axioms GraphProductRing.nbHashimotoBijection
+#print axioms GraphProductRing.nbGraphCount_hashimoto

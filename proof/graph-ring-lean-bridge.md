@@ -1,6 +1,7 @@
 # Lean graph-ring bridge: checked stages and remaining obligations
 
-Status: formal implementation in progress. Existing Paper III claim records stay
+Status: the cyclic nonbacktracking graph-ring bridge is kernel-checked through
+Stage D below. Existing Paper III claim records stay
 **working**. Issue #22, external mathematical acceptance, manuscript provenance,
 and novelty-lab N6 obligations remain open. Kernel checks do not establish novelty.
 
@@ -39,25 +40,23 @@ it requires a separately proved invariant value at K₁. `support_cancellation`
 cancels one supported object, and `full_support_extraction` exchanges the finite
 sums to extract exactly full support for any finite object family.
 
-## Formal obligations after Stage A
+## Bridge obligation map
 
-The generic extraction lemma does **not** itself identify graph-count evaluations
-with the relevant object family. That correspondence must still be proved.
+The generic extraction lemma alone did not identify graph-count evaluations with
+the relevant object family. Subsequent stages discharge that correspondence:
 
-1. Actual Cartesian trajectories, unique coordinate recovery, cyclic NB including
-   the seam, arbitrary-factor support budget, and maximal-support edge recovery.
-2. A bijection between maximal-support factor walks and edge data × the **existing**
-   `Word k` type. Its multiplicity must be derived from checked finite cardinal
-   equivalences, consuming `word_count`/`rooted_count`, not from an assumed symbol.
-3. A ℤ-linear graph-ring descent of the actual cyclic NB count; fiber restrictions
-   preserving adjacency and the cyclic seam; identification with the checked
-   centered sum. The ring-valued invariant universal property alone does not
-   construct a nonmultiplicative walk invariant.
-4. Combine 1–3 with `vanishes_on_power_iff` for the global upper filtration bound
-   and symbol. Extend factor identities by multilinearity; establish the nonzero
-   K₂ evaluation separately before claiming exact order.
-5. Primitive trace/Möbius normalization and simple-cycle/aggregate-deficit cases
-   remain separate. In particular eta₂=eta₃=0 gives no exact-order assertion.
+1. **Closed in Stage B:** actual Cartesian trajectories, unique coordinate
+   recovery, cyclic NB including the seam, arbitrary-factor support budget, and
+   maximal-support edge recovery.
+2. **Closed in Stage B:** full-support factor-walk/edge-data/Word bijection, with
+   checked factor multiplicities consuming the existing `word_count`.
+3. **Closed in Stages C–D:** additive descent of actual cyclic NB counts and exact
+   masking/walk-restriction correspondence preserving the cyclic seam.
+4. **Closed in Stage D:** arbitrary virtual-element upper filtration, global
+   multilinear symbol identity, and separate nonzero K₂ witness for exact order.
+5. **Intentionally separate:** primitive trace/Möbius filtration, ordinary
+   simple-cycle invariants, and aggregate deficits. In particular eta₂=eta₃=0
+   gives no exact-order assertion. External acceptance and N6 are also separate.
 
 ## Verification
 
@@ -102,7 +101,7 @@ cardinality and the merged `word_count` yield `full_support_factor_count`:
 `card (FullProductWalk G) = beta k * product_i |E(G_i)|`.
 
 This is the exact all-k factor multiplicity at the level of actual walks.
-The graph-ring global symbol still requires the additive count descent and
+At this stage the graph-ring global symbol still required additive count descent and
 fiber correspondence listed in Stage A obligations 3–4. No conditional assembly
 lemma is substituted for those missing proofs.
 
@@ -138,7 +137,71 @@ classes, with its actual graph evaluation proved in `nbInvariant_class`.
 class equal to the product of the factor classes, including the zero-factor
 K₁ case. `DiscreteGraphs.lean` proves an edgeless graph is its vertex count
 copies of K₁ in the ring. These are structural graph results, with no NB symbol
-claim assumed. The remaining assembly must identify coordinate masking with
-actual walk restriction and apply the checked support cancellation. It must
-then use the checked ideal-power spanning, rather than infer a global theorem
-from the finite factor cardinality alone.
+claim assumed. The final Stage D assembly below identifies coordinate masking with
+actual walk restriction and applies the checked support cancellation and
+ideal-power spanning. The global theorem is not inferred from finite cardinal
+experiments.
+
+
+## Stage D: formal global filtration and symbol
+
+`MaskedSupport.lean` establishes the exact missing correspondence. Replacing a
+factor's edges by the empty relation retains its actual vertices. The checked
+`maskedWalkEquiv` identifies its product walks with precisely the unmasked walks
+whose coordinate sequence never uses that factor. Step adjacency and cyclic NB,
+including last–first, are preserved in both directions.
+
+The edgeless class identity retains all fixed-coordinate vertex choices, including
+zero choices for empty factors. No division, nonemptiness, regularity,
+connectedness or bipartiteness is introduced. `masked_count` expresses each masked
+count by per-walk support indicators. Together with the constructed additive
+invariant, centered ring expansion and pointwise cancellation, this yields
+
+`nb_centered_full_support : b_m(product_i u_Gi) = card(full-support ProductWalk G m)`.
+
+`EdgeInvariant.lean` constructs the ℤ-linear unoriented edge count `edgeInvariant`
+on the same ring. Isomorphism invariance and disjoint-union additivity are proved;
+its value at K₁ is zero, and centering preserves its value.
+
+`NonbacktrackingSymbol.lean` proves these statements separately:
+
+| Declaration | Kernel-checked statement |
+|---|---|
+| `nb_upper_filtration` | For positive q and positive m with m < 2q, `b_m(I^q)=0`, on arbitrary virtual elements. |
+| `nb_graph_symbol` | For k≥2, the actual-graph k-fold centered defect is `beta k * product_i |E(G_i)|`. |
+| `multilinear_graph_ext` | Equality on actual graph classes extends to all virtual factors, using the proved additive spanning in each coordinate. |
+| `nb_global_symbol` | `centeredSymbol k b_(2k) = beta k • edgeTensor k`, an equality of multilinear maps on the entire ring. |
+| `nb_global_symbol_apply` | Pointwise formula for arbitrary virtual factors `x_i`: `b_(2k)(product_i center x_i) = beta k * product_i d(x_i)`. |
+| `nb_exact_order` | `b_(2k)` vanishes on I^(k+1) but does not vanish on I^k. The nonzero witness uses K₂ and the existing `beta_pos`. |
+
+Here `centeredSymbol` has **no factorial divisor**. Positive-length typeclass
+hypotheses `NeZero m` and `NeZero (k+k)` merely let Lean use cyclic `Fin` addition;
+k≥2 guarantees the latter and introduces no extra mathematical restriction.
+`HasExactAugmentationOrder` explicitly distinguishes the upper bound from failure
+of vanishing on I^k. No primitive or aggregate-deficit assertion is used in its proof.
+
+`Hashimoto.lean` additionally proves `nbHashimotoBijection` between actual vertex
+trajectories and rooted closed trajectories on the directed-arc Hashimoto
+transition relation, with its cyclic seam. Thus the formal count has the intended
+rooted oriented NB semantics. Expansion of matrix powers to express the same count
+as a literal matrix trace is not formalized here; that standard matrix encoding is
+separate from the proved graph-ring identity.
+
+### Acceptance boundaries retained
+
+The missing graph-ring bridge for the cyclic NB count has now been proved by the
+kernel, rather than assumed. This does **not** change `proof/claims.toml` or close
+Issue #22. External mathematical review must still assess definitions, the
+operator/symbol convention and interpretation against Paper III. Claim-specific
+prior-art N6, manuscript provenance and publication decisions remain independent.
+
+The finite primitive rotation normalization from PR #28 is preserved, but this work
+makes no new primitive-invariant descent/Möbius theorem. The ordinary simple-cycle
+invariant and aggregate deficit retain their separate proof and acceptance records;
+eta₂=eta₃=0 still warrants neither exact order k nor functional vanishing. Junction
+multiplicities and their finer recursion remain separate work.
+
+The independent support replay now also evaluates negative virtual factors. It
+obtains a signed degree-two defect −24 and a degree-three length-four defect zero.
+These finite values corroborate the separately proved virtual-factor extension;
+they are not hypotheses of any Lean declaration.

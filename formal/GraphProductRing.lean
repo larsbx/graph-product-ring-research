@@ -14,3 +14,7 @@ import GraphProductRing.AdditiveLift
 import GraphProductRing.WalkInvariant
 import GraphProductRing.CartesianRing
 import GraphProductRing.DiscreteGraphs
+import GraphProductRing.MaskedSupport
+import GraphProductRing.EdgeInvariant
+import GraphProductRing.NonbacktrackingSymbol
+import GraphProductRing.Hashimoto

@@ -288,3 +288,14 @@ vertex-DFS/rotation-orbit replay. The aggregate formula uses `D_k Delta_k`,
 not an exact-order principal symbol when the degree-k defect is zero.
 In particular eta_2=eta_3=0 does not assert exact order k or function
 vanishing. Working status and the independent acceptance gates remain.
+
+
+## 8. Kernel-checked graph-ring continuation
+
+The cyclic NB portion now has the complete formal graph-ring bridge in
+[`graph-ring-lean-bridge.md`](graph-ring-lean-bridge.md), Stages A–D. This constructs
+the actual-count additive descent, centered support identity, arbitrary-factor
+edge multiplicity, virtual-element upper filtration and global symbol, with exact
+order proved separately. It reuses PR #28's finite Word/matching proofs. Primitive
+Möbius filtration and simple-cycle/aggregate-deficit statements remain separate;
+no claim status or external acceptance gate is changed by kernel verification.

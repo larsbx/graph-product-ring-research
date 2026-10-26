@@ -7,7 +7,7 @@ Git dependencies are fixed in `lake-manifest.json`.
 From this directory, with Elan installed:
 
 ```sh
-lake exe cache get Mathlib.Tactic Mathlib.Data.Fintype.Perm Mathlib.Data.Fintype.BigOperators Mathlib.Data.Setoid.Basic Mathlib.Algebra.Group.Fin.Basic Mathlib.RingTheory.FreeCommRing Mathlib.RingTheory.Ideal.Quotient.Operations Mathlib.RingTheory.Ideal.Operations Mathlib.Combinatorics.SimpleGraph.Sum Mathlib.Combinatorics.SimpleGraph.Prod Mathlib.Combinatorics.SimpleGraph.DegreeSum
+lake exe cache get Mathlib.Tactic Mathlib.Data.Fintype.Perm Mathlib.Data.Fintype.BigOperators Mathlib.Data.Setoid.Basic Mathlib.Algebra.Group.Fin.Basic Mathlib.RingTheory.FreeCommRing Mathlib.RingTheory.Ideal.Quotient.Operations Mathlib.RingTheory.Ideal.Operations Mathlib.Combinatorics.SimpleGraph.Sum Mathlib.Combinatorics.SimpleGraph.Prod Mathlib.Combinatorics.SimpleGraph.DegreeSum Mathlib.LinearAlgebra.Multilinear.Basic
 cd ..
 python3 tools/check_lean.py
 python3 oracles/lean_word_vectors.py
@@ -21,7 +21,9 @@ axiom is allowed. `Examples.lean` uses ordinary kernel-reduced `decide`.
 The Python replay is independent finite evidence, not an axiom of the proofs.
 
 See [the statement and remaining obligations](../proof/finite-maximal-support-lean.md).
-The graph ring, centered augmentation ideal, additive spanning of its positive powers,
-and algebraic inclusion–exclusion are formalized; see
-[the exact bridge boundary](../proof/graph-ring-lean-bridge.md). Actual walk-count descent
-and the full nonbacktracking symbol theorem remain separate obligations.
+The full cyclic nonbacktracking graph-ring bridge is kernel-checked: additive count
+descent, centered support cancellation, arbitrary-factor edge recovery, virtual-element
+upper filtration, global symbol, and separate exact order. See
+[the exact statements and remaining acceptance boundaries](../proof/graph-ring-lean-bridge.md).
+Existing claim classifications remain working; external mathematical and prior-art review
+are separate from kernel verification.
