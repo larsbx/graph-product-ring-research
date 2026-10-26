@@ -124,8 +124,10 @@ in the existing proof record.
 
 ## Graph-ring bridge continuation
 
-The checked Stage A foundation is recorded in
-[`graph-ring-lean-bridge.md`](graph-ring-lean-bridge.md). It constructs the ring,
-augmentation, additive ideal-power spanning, and algebraic support cancellation.
-The actual-walk correspondence and global symbol are still separate obligations;
-this continuation does not change any Paper III claim classification.
+The subsequent checked Stages A–D are recorded in
+[`graph-ring-lean-bridge.md`](graph-ring-lean-bridge.md). They construct the ring,
+augmentation, ideal powers, actual-walk additive descent, coordinate masking and
+cancellation, arbitrary-factor edge recovery and multiplicities, upper filtration,
+global cyclic NB symbol on virtual factors, and separate exact order. The finite
+Word/matching/orbit proofs above are reused. This continuation does not change any
+Paper III claim classification or settle external acceptance or prior-art gates.

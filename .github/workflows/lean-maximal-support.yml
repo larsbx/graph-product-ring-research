@@ -25,7 +25,7 @@ jobs:
           Mathlib.Algebra.Group.Fin.Basic Mathlib.RingTheory.FreeCommRing
           Mathlib.RingTheory.Ideal.Quotient.Operations Mathlib.RingTheory.Ideal.Operations
           Mathlib.Combinatorics.SimpleGraph.Sum Mathlib.Combinatorics.SimpleGraph.Prod
-          Mathlib.Combinatorics.SimpleGraph.DegreeSum
+          Mathlib.Combinatorics.SimpleGraph.DegreeSum Mathlib.LinearAlgebra.Multilinear.Basic
       - name: Kernel build and transitive axiom allowlist
         run: python3 tools/check_lean.py
       - name: Independently enumerate words, matchings and actual vertex orbits

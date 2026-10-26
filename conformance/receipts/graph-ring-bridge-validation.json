@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-26",
+  "lean": "4.24.0",
+  "mathlib": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "parent_main": "0378427fbd79fe912b802a4894cb81a9a631e735",
+  "kernel_build": "pass; warnings as errors",
+  "transitive_axiom_audits": 69,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "python_unit_tests": 24,
+  "independent_replays": [
+    "lean_word_vectors.py",
+    "graph_ring_support.py",
+    "nb_symbol_replay_independent.py",
+    "paper_v5_audit.py"
+  ],
+  "scope": "cyclic rooted NB graph-ring identity and separate exact order; external acceptance and prior art remain open",
+  "source_sha256": {
+    "GraphRing": "45f8ea9da1f10d32506fbbe821e5c665cceaf82c7c95e8676cd99dc9f0b4c872",
+    "Augmentation": "e0694408503f0d998fd17e4d5f541a725ba61c0ebb2d6a3765b66268e04a7a22",
+    "CenteredSupport": "34eeff76ced962ed5b5b16ec3dc1bb13814a4c31dd04cd9e68b4740519225c61",
+    "CartesianWalks": "2a6620bf732860f2d9cf3c9185b674772d23b53183b7d3d9903736a29b9b2225",
+    "FactorMultiplicity": "95a03aa7bff5e000a74bdedb7f6d392f944b23e7a448dc627ec95ba076b2a41e",
+    "GraphRig": "6a14890286db6482ac9b475f034796b6e8e64f390c1ee3e18308ecfabacb2817",
+    "AdditiveLift": "573d7d2670de3bc41af1446613249c051c8e7bbce6970050ba1ab5a5b77d53a6",
+    "WalkInvariant": "e8d85156b179f1ee93fede8e783852e0466d0715a1e07c9115480d2a9357bd92",
+    "CartesianRing": "bbddc9bf085585542121d3285160faf757bb345d75ddd2c0c4dbe2703dee5ce1",
+    "DiscreteGraphs": "ea609a71ef3f116d3d7b69d4d1935afcdde61958f06b9b39db5cfdaccea00b7b",
+    "MaskedSupport": "7e2eac1a317f2a321fd7037c757dfc47a7750ee26fcc7954ecad583123402f26",
+    "EdgeInvariant": "c65c85a342cf928290f07abf0648362397d219b690a46ef88c97d6e3c6bc8d39",
+    "NonbacktrackingSymbol": "96680d20ffbbf93ae13e065e735e45fee07d5106005cb26b8e83dc8265904d8d",
+    "Hashimoto": "b203f8da0f72271c0fc914d44fbe39dc50e9d02746722ebfde690e9e0a52b1a2"
+  }
+}

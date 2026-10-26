@@ -65,6 +65,8 @@
       "recovered_edge_word_tuples": null
     }
   ],
+  "virtual_symbol": -24,
+  "virtual_upper": 0,
   "uncentered_counterexample": {
     "rooted": 48,
     "centered": 32
