@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-26",
+  "owner": "larsbx",
+  "source_commit": "28d022402037274a9fe85c1fd64ecda2532dceb9",
+  "provisioning_method": "GitHub repository creation UI; authenticated connector metadata and PR verification",
+  "status": "all five created, authenticated, bootstrapped, validated and initialization PRs merged",
+  "mathematical_acceptance": "unchanged; source working statuses preserved; no new Lean proof or independent acceptance",
+  "repositories": [
+    {
+      "repository": "larsbx/even-cycle-calculus-research",
+      "url": "https://github.com/larsbx/even-cycle-calculus-research",
+      "repository_id": "1434486054",
+      "visibility": "public",
+      "permissions": {
+        "admin": true,
+        "maintain": true,
+        "pull": true,
+        "push": true,
+        "triage": true
+      },
+      "bootstrap_commit": "b5228e00c8f6d4ece55153754ab4fa0fbf048460",
+      "merged_commit": "42cfd84dfe4251bc6aef92683bd77144cc76a7e8",
+      "initialization_pr": "https://github.com/larsbx/even-cycle-calculus-research/pull/1",
+      "pr_merged": true,
+      "hosted_replay_run": 40340079172,
+      "hosted_replay_conclusion": "success",
+      "local_replay": "source digests, preserved statuses, exact receipt: passed"
+    },
+    {
+      "repository": "larsbx/cartesian-support-rank-research",
+      "url": "https://github.com/larsbx/cartesian-support-rank-research",
+      "repository_id": "1434487052",
+      "visibility": "public",
+      "permissions": {
+        "admin": true,
+        "maintain": true,
+        "pull": true,
+        "push": true,
+        "triage": true
+      },
+      "bootstrap_commit": "c2be9ca2a885ea16dcac519ef1742fbabcae789f",
+      "merged_commit": "59f28e51b061a0bba527787db7c97e40a0f7db0c",
+      "initialization_pr": "https://github.com/larsbx/cartesian-support-rank-research/pull/1",
+      "pr_merged": true,
+      "hosted_replay_run": 40340189330,
+      "hosted_replay_conclusion": "success",
+      "local_replay": "source digests, preserved statuses, exact receipt: passed"
+    },
+    {
+      "repository": "larsbx/hypercube-cycle-extremal-research",
+      "url": "https://github.com/larsbx/hypercube-cycle-extremal-research",
+      "repository_id": "1434487736",
+      "visibility": "public",
+      "permissions": {
+        "admin": true,
+        "maintain": true,
+        "pull": true,
+        "push": true,
+        "triage": true
+      },
+      "bootstrap_commit": "30e9c1862453f893cb5986ea3990243f20e37ff8",
+      "merged_commit": "c20cf1244f597a6f4a896ddf3f61da7c91fe05b3",
+      "initialization_pr": "https://github.com/larsbx/hypercube-cycle-extremal-research/pull/1",
+      "pr_merged": true,
+      "hosted_replay_run": 40340201790,
+      "hosted_replay_conclusion": "success",
+      "local_replay": "source digests, preserved statuses, exact receipt: passed"
+    },
+    {
+      "repository": "larsbx/chord-diagram-symbols-research",
+      "url": "https://github.com/larsbx/chord-diagram-symbols-research",
+      "repository_id": "1434489094",
+      "visibility": "public",
+      "permissions": {
+        "admin": true,
+        "maintain": true,
+        "pull": true,
+        "push": true,
+        "triage": true
+      },
+      "bootstrap_commit": "a8c00d72a17c2024ca727dc4dafbbb07f7c2a5e5",
+      "merged_commit": "1391205162672cbdcc0a9db0ff839c16a685c140",
+      "initialization_pr": "https://github.com/larsbx/chord-diagram-symbols-research/pull/1",
+      "pr_merged": true,
+      "hosted_replay_run": 40340211788,
+      "hosted_replay_conclusion": "success",
+      "local_replay": "source digests, preserved statuses, exact receipt: passed"
+    },
+    {
+      "repository": "larsbx/vizing-coordinate-support-research",
+      "url": "https://github.com/larsbx/vizing-coordinate-support-research",
+      "repository_id": "1434490345",
+      "visibility": "public",
+      "permissions": {
+        "admin": true,
+        "maintain": true,
+        "pull": true,
+        "push": true,
+        "triage": true
+      },
+      "bootstrap_commit": "c387fd8aeea0198add2632fd2119ad45f2f0c307",
+      "merged_commit": "192f515accc91fc51e70712b57d9225e8051acd7",
+      "initialization_pr": "https://github.com/larsbx/vizing-coordinate-support-research/pull/1",
+      "pr_merged": true,
+      "hosted_replay_run": 40340229081,
+      "hosted_replay_conclusion": "success",
+      "local_replay": "source digests, preserved statuses, exact receipt: passed"
+    }
+  ]
+}
