@@ -121,3 +121,11 @@ in the existing proof record.
    (including #32/#37); a formal proof establishes neither originality nor
    publication priority. General junction recursion and lower-order deficit
    decomposition remain separate open work.
+
+## Graph-ring bridge continuation
+
+The checked Stage A foundation is recorded in
+[`graph-ring-lean-bridge.md`](graph-ring-lean-bridge.md). It constructs the ring,
+augmentation, additive ideal-power spanning, and algebraic support cancellation.
+The actual-walk correspondence and global symbol are still separate obligations;
+this continuation does not change any Paper III claim classification.

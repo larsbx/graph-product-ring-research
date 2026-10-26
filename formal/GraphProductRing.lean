@@ -4,3 +4,6 @@ import GraphProductRing.Cycles
 import GraphProductRing.SimpleCycles
 import GraphProductRing.Examples
 import GraphProductRing.MaximalSupport
+import GraphProductRing.GraphRing
+import GraphProductRing.Augmentation
+import GraphProductRing.CenteredSupport
