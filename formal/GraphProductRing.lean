@@ -9,3 +9,8 @@ import GraphProductRing.Augmentation
 import GraphProductRing.CenteredSupport
 import GraphProductRing.CartesianWalks
 import GraphProductRing.FactorMultiplicity
+import GraphProductRing.GraphRig
+import GraphProductRing.AdditiveLift
+import GraphProductRing.WalkInvariant
+import GraphProductRing.CartesianRing
+import GraphProductRing.DiscreteGraphs
