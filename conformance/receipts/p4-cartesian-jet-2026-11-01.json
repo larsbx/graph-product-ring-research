@@ -1,0 +1,31 @@
+{
+  "schema": "gpr-p4-cartesian-jet-audit-v1",
+  "date": "2026-11-01",
+  "claim": "GPR-P4-CARTESIAN-JET",
+  "source": "oracles/p4_cartesian_jet_audit.py",
+  "source_sha256": "4dbeeab4f56cd959c0888286321dd6dd9294368338c01a209a475ded32e600c1",
+  "conditions": "finite undirected simple graphs; ordinary non-induced unrooted P4 copies",
+  "python": "Python >= 3.10; standard library only",
+  "unlabeled_graphs_by_order": {
+    "0": 1,
+    "1": 1,
+    "2": 2,
+    "3": 4,
+    "4": 11,
+    "5": 34
+  },
+  "audited_graph_classes": 53,
+  "unordered_graph_pairs": 1431,
+  "unordered_connected_triples": 220,
+  "unordered_connected_four_tuples": 35,
+  "calibration": {
+    "P4_C4": 4,
+    "P4_Q3": 48,
+    "P4_K3_square_K2": 30,
+    "third_mixed_difference_K2_K2_K2": 24,
+    "P4_K4": 12
+  },
+  "result": "all local assertions passed",
+  "replay": "python3 -m unittest discover -s tests -p test_p4_cartesian_jet.py -v",
+  "authority": "bounded finite computational evidence; universal result needs proof record; status working pending external acceptance"
+}

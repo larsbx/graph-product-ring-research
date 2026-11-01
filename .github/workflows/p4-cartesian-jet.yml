@@ -1,0 +1,37 @@
+name: P4 Cartesian product jet audit
+
+on:
+  pull_request:
+    paths:
+      - 'proof/p4-cartesian-jet.md'
+      - 'oracles/p4_cartesian_jet_audit.py'
+      - 'tests/test_p4_cartesian_jet.py'
+      - 'conformance/receipts/p4-cartesian-jet-2026-11-01.json'
+      - 'proof/claims.toml'
+      - 'docs/research/roadmap.md'
+      - '.github/workflows/p4-cartesian-jet.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'proof/p4-cartesian-jet.md'
+      - 'oracles/p4_cartesian_jet_audit.py'
+      - 'tests/test_p4_cartesian_jet.py'
+      - 'conformance/receipts/p4-cartesian-jet-2026-11-01.json'
+      - 'proof/claims.toml'
+      - 'docs/research/roadmap.md'
+      - '.github/workflows/p4-cartesian-jet.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  p4-jet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Independent exhaustive unlabeled-graph and mixed-difference tests
+        run: python3 -m unittest discover -s tests -p test_p4_cartesian_jet.py -v
+      - name: Reproduce the bounded enumeration receipt
+        run: python3 oracles/p4_cartesian_jet_audit.py
