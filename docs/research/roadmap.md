@@ -121,3 +121,19 @@ destinations and their first obligations. Provisioning/access is unverified
 (404 on all five metadata reads); this allocation is not a creation receipt.
 Reuse the existing chord-identification proof, preserve claim status, and keep
 the Vizing bridge separate from the existing domination program.
+
+## P4 Cartesian path-jet checkpoint (2026-11-01)
+
+- [Proof record](../../proof/p4-cartesian-jet.md): exact ordinary non-induced
+  P4 product formula, epsilon-order 3, and top symbol 24 d^tensor3.
+- [Independent oracle](../../oracles/p4_cartesian_jet_audit.py) and
+  [receipt](../../conformance/receipts/p4-cartesian-jet-2026-11-01.json):
+  53 unlabeled graphs, 1,431 unordered graph pairs, 220 connected triples,
+  and 35 fourth mixed differences. Retains a K4 chord-count negative control.
+- [Regression tests](../../tests/test_p4_cartesian_jet.py) and
+  [focused CI](../../.github/workflows/p4-cartesian-jet.yml) replay the exact
+  counts on pull requests and on main.
+- Registry claim GPR-P4-CARTESIAN-JET stays **working** until independent
+  mathematical review, literature comparison, and manuscript-source
+  synchronization. This checkpoint does not promote the imported P3 identity
+  or supersede existing c2k work.

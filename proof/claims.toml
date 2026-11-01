@@ -137,3 +137,11 @@ status = "working"
 statement = "Kernel-checked: indexed cyclic adjacent-distinct double-occurrence words modulo coordinate relabeling biject with adjacent-avoiding perfect matchings; card W_k=k! R_k, beta_k=2^k k! R_k>0 for k>=2; actual maximal-support cube traversals are primitive and have 2k-root oriented rotation classes; simple traversal classes have 4k roots/orientations."
 authority = "proof/finite-maximal-support-lean.md"
 notes = "Lean 4.24.0 with pinned Mathlib, transitive axiom allowlist and independent bounded replay. Formal verification is limited to the finite component; graph-ring bridge, independent mathematical acceptance and prior-art obligations remain separate. No existing claim is promoted; issue #22 stays open."
+
+[[claim]]
+id = "GPR-P4-CARTESIAN-JET"
+title = "Unrestricted P4 Cartesian product law and third differential jet"
+status = "working"
+statement = "For ordinary non-induced P4 copies F, F(G square H) = |V(H)|F(G)+|V(G)|F(H)+6d(H)P3(G)+6d(G)P3(H)+4d(G)d(H), with exact epsilon-order 3 and principal symbol 24 d^tensor3."
+authority = "proof/p4-cartesian-jet.md"
+notes = "Universal combinatorial derivation; independent exact enumeration on 53 unlabeled graphs and 1,431 unordered products, 220 triples and 35 fourth-difference checks. Rooted-any-vertex factor 4 and endpoint-rooted factor 2. Explicitly non-induced. Pending independent mathematical review and novelty gate; no manuscript promotion."
