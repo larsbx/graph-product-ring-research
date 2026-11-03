@@ -3,7 +3,7 @@
   "date": "2026-11-01",
   "claim": "GPR-P4-CARTESIAN-JET",
   "source": "oracles/p4_cartesian_jet_audit.py",
-  "source_sha256": "4dbeeab4f56cd959c0888286321dd6dd9294368338c01a209a475ded32e600c1",
+  "source_sha256": "da99a3b9ac59ddf9abfe432bf649e75550a796b15e441863efb5c70cf6695975",
   "conditions": "finite undirected simple graphs; ordinary non-induced unrooted P4 copies",
   "python": "Python >= 3.10; standard library only",
   "unlabeled_graphs_by_order": {
